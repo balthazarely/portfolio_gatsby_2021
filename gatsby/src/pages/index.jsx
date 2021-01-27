@@ -5,6 +5,8 @@ import { graphql } from 'gatsby';
 import MainHero from '../components/Hero/MainHero';
 import ImageGrid from '../components/ImageGrid/ImageGrid';
 import AnotherImageGrid from '../components/ImageGrid/AnotherImageGrid';
+import Rule from '../components/Common/Rule';
+import Skills from '../components/Common/Skills/Skills';
 
 const Layout = styled(motion.div)`
   margin: 0 auto;
@@ -18,13 +20,15 @@ export default function Index({ data }) {
   return (
     <Layout>
       <MainHero />
+      <Rule />
       <AnotherImageGrid allProjects={allProjects} />
+      <Skills />
     </Layout>
   );
 }
 export const query = graphql`
   query MyQuery {
-    allProjects: allSanityProjects {
+    allProjects: allSanityProjects(sort: { order: ASC, fields: order }) {
       nodes {
         name
         tags

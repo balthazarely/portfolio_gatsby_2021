@@ -22,6 +22,12 @@ export default {
       },
     },
     {
+      name: 'order',
+      title: 'Placement Order',
+      type: 'number',
+      description: 'Rate the project order',
+    },
+    {
       name: 'category',
       title: 'Project Category',
       type: 'string',

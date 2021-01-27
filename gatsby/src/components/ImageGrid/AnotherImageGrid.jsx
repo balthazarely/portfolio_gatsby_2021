@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Masonry from 'react-masonry-component';
 import { useInView } from 'react-intersection-observer';
@@ -6,14 +6,19 @@ import { motion, useAnimation } from 'framer-motion';
 import Img from 'gatsby-image';
 import { device } from '../../utils/breakpoints';
 import imagePlaceholder from '../../assets/image/jpg/dev/regular/portfolio-1.jpg';
+import SimpleParralax from '../Parralax/SimpleParralax';
+import SectionHeader from '../Common/SectionHeader';
+import { Section } from '../../styles/PageStyles';
 
 const Content = styled(motion.div)`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: .5rem;
-  overflow: hidden;
-}`;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px;
+`;
 
 const Item = styled(motion.div)`
   height: 250px;
@@ -27,16 +32,24 @@ const ProjectImage = styled(motion.div)`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  border: 1px solid green;
   .project-image {
-    /* min-width: 100%;
-    min-height: 100%; */
+    border-radius: 15px;
     overflow: hidden;
     transform: scale(1);
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+`;
+const Overlay = styled(motion.div)`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(22, 29, 45, 0.35);
+  z-index: 101;
+  border-radius: 13px;
+  transition: 0.4s;
 `;
 
 const ProjectInfoTab = styled(motion.div)`
@@ -65,85 +78,75 @@ const ProjectInfoTab = styled(motion.div)`
   }
 `;
 
-const containerAnimation = {
-  initial: { y: 40, opacity: 0 },
-  enter: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      delay: 0.5,
-      staggerChildren: 0.25,
-      ease: [0.43, 0.13, 0.23, 0.96],
-    },
-  },
-  exit: {
-    y: 20,
-    opacity: 0,
-    transition: {
-      duration: 0.75,
-      // transition: { staggerChildren: 0.07, ease: [0.43, 0.13, 0.23, 0.96] },
-    },
-  },
-};
-
-const infoAnimation = {
+const projectInfoPopupVariant = {
   rest: { opacity: 0, y: 50 },
   hover: {
     opacity: 1,
     y: 0,
-    // transition: {
-    //   type: 'spring',
-    //   stiffness: 50,
-    //   duration: 1,
-    // },
   },
 };
 
-const imageAnimation = {
+const hoverProjectVariant = {
   rest: { scale: 1 },
   hover: {
     scale: 1.05,
+    background: 'transparent',
   },
 };
+
+const projectFadeUpVariant = {
+  visible: { opacity: 1, y: 0 },
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+};
+
 function SingleProject({ projectData }) {
-  console.log(projectData);
+  const [ref, inView, entry] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
   return (
-    <Item
-      data-sal="slide-up"
-      data-sal-duration="500" // changes duration of the animation (from 200 to 2000 ms)
-      data-sal-delay="100" // adds delay to the animation (from 5 to 1000 ms)
-      data-sal-easing="ease"
-      initial="rest"
-      whileHover="hover"
-      animate="rest"
+    <motion.div
+      animate={inView ? 'visible' : 'hidden'}
+      variants={projectFadeUpVariant}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      ref={ref}
     >
-      {/* <motion.div initial="rest" whileHover="hover" animate="rest"> */}
-      <ProjectInfoTab variants={infoAnimation}>
-        <div className="project-name">{projectData.name}</div>
-        <div className="project-description">React, MongoDb, Firebase</div>
-      </ProjectInfoTab>
-      <ProjectImage
-        variants={imageAnimation}
-        whileHover="hover"
-        transition={{ type: 'spring', stiffness: 50, duration: 0.5 }}
-        // src={imagePlaceholder}
-        alt="123"
-      >
-        <Img
-          className="project-image"
-          fluid={projectData.coverImage.asset.fluid}
-          alt={projectData.name}
-        />
-      </ProjectImage>
-      {/* </motion.div> */}
-    </Item>
+      {/* <SimpleParralax strength={200}> */}
+      <Item initial="rest" animate="rest" whileHover="hover">
+        <ProjectInfoTab variants={projectInfoPopupVariant}>
+          <div className="project-name">{projectData.name}</div>
+          <div className="project-description">React, MongoDb, Firebase</div>
+        </ProjectInfoTab>
+        <ProjectImage
+          variants={hoverProjectVariant}
+          whileHover="hover"
+          transition={{ type: 'spring', stiffness: 50, duration: 0.5 }}
+          alt="project-image"
+        >
+          <Overlay variants={hoverProjectVariant} whileHover="hover" />
+          <Img
+            className="project-image"
+            fluid={projectData.coverImage.asset.fluid}
+            alt={projectData.name}
+          />
+        </ProjectImage>
+      </Item>
+      {/* </SimpleParralax> */}
+    </motion.div>
   );
 }
 
 export default function ImageGridStatic({ allProjects }) {
   return (
-    <>
+    <Section>
+      <SectionHeader
+        text="work."
+        subtext="some of my recent projects."
+        marginBottom="0"
+      />
       <Content id="work">
         {allProjects.nodes.map((project) => (
           <>
@@ -151,6 +154,6 @@ export default function ImageGridStatic({ allProjects }) {
           </>
         ))}
       </Content>
-    </>
+    </Section>
   );
 }

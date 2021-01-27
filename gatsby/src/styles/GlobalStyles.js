@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import { motion } from 'framer-motion';
 import { DefaultColors } from './ColorScheme';
 
 const GlobalStyles = createGlobalStyle`
@@ -55,8 +56,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ darkMode }) =>
       darkMode ? DefaultColors.dark : DefaultColors.white};
   }
- 
-
+  
 `;
 
 export default GlobalStyles;

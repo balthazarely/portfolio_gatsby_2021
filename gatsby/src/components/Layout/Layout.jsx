@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import Navbar from '../Header/Navbar';
 import GlobalStyles from '../../styles/GlobalStyles';
 import TypographyStyles from '../../styles/Typography';
@@ -9,6 +10,7 @@ import GlobalContext from '../../context/GlobalContext';
 
 const PageContainer = styled(motion.div)`
   margin-top: 70px;
+  overflow: hidden;
 `;
 
 export default function Layout({ children, location }) {

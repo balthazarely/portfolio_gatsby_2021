@@ -23,14 +23,15 @@ const TypographyStyles = createGlobalStyle`
             line-height: 70px;
         }
     }
+  
     .nav-link-text {
         color: ${({ darkMode }) =>
           darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
         }
-        &:hover {
+        /* &:hover {
             color: white;
             transition: .2s;
-        }
+        } */
     }
 `;
 

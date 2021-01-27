@@ -21,3 +21,8 @@ export const pageTransitionOne = {
     transition: { duration },
   },
 };
+
+export const pageTransitionChild = {
+  hidden: { scale: 0 },
+  show: { scale: 0 },
+};
