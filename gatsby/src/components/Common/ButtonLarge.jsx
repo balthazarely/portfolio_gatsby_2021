@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { DefaultColors } from '../../styles/ColorScheme';
 
 const Button = styled(motion.button)`
   font-size: 13px;
@@ -22,7 +23,7 @@ const Button = styled(motion.button)`
   border: none;
   white-space: nowrap;
   color: rgb(255, 255, 255);
-  background-color: rgb(86, 179, 129);
+  background: ${(props) => props.highlight};
   transition: all 0.4s ease-out 0s;
   outline: none !important;
   cursor: pointer;
@@ -31,6 +32,7 @@ const Button = styled(motion.button)`
 export default function ButtonLarge({ children }) {
   return (
     <Button
+      highlight={DefaultColors.highlight}
       whileHover={{
         y: -10,
         transition: { duration: 0.25 },

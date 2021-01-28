@@ -60,10 +60,10 @@ export default function SectionHeader({
         transition={{ duration: 1, ease: 'easeOut' }}
         ref={ref}
       >
-        <div className="header">
+        <div className="header section-header">
           <div>{text}</div>
         </div>
-        <div className="subheader">
+        <div className="subheader section-subheader">
           <div>{subtext}</div>
         </div>
       </SectionHeaderWrapper>

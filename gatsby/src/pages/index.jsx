@@ -6,7 +6,8 @@ import MainHero from '../components/Hero/MainHero';
 import ImageGrid from '../components/ImageGrid/ImageGrid';
 import AnotherImageGrid from '../components/ImageGrid/AnotherImageGrid';
 import Rule from '../components/Common/Rule';
-import Skills from '../components/Common/Skills/Skills';
+import Skills from '../components/Common/Skills';
+import Contact from '../components/Common/Contact';
 
 const Layout = styled(motion.div)`
   margin: 0 auto;
@@ -23,6 +24,7 @@ export default function Index({ data }) {
       <Rule />
       <AnotherImageGrid allProjects={allProjects} />
       <Skills />
+      <Contact />
     </Layout>
   );
 }

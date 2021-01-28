@@ -23,7 +23,16 @@ const TypographyStyles = createGlobalStyle`
             line-height: 70px;
         }
     }
-  
+    .section-header{
+        color: ${({ darkMode }) =>
+          darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
+        }
+    }
+    .section-subheader{
+        color: ${({ darkMode }) =>
+          darkMode ? DefaultColors.darkLess : DefaultColors.white};
+                }
+        }
     .nav-link-text {
         color: ${({ darkMode }) =>
           darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
@@ -32,7 +41,29 @@ const TypographyStyles = createGlobalStyle`
             color: white;
             transition: .2s;
         } */
-    }
+        }
+        .skill-header{
+        color: ${({ darkMode }) =>
+          darkMode ? DefaultColors.darkLess : DefaultColors.white};
+            }
+        }
+        .skill{
+        color: ${({ darkMode }) =>
+          darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
+                }
+        }
+        .color-block {
+            background: ${({ darkMode }) =>
+              darkMode ? DefaultColors.white : DefaultColors.darkLess};
+                }
+        }
+            /* background: rgba(38, 45, 56, 0.5); */
+        .skill-header-bg{
+            opacity: 0.5;
+            color: ${({ darkMode }) =>
+              darkMode ? DefaultColors.whiteLess : '#161d2d'};
+                }
+        }
 `;
 
 export default TypographyStyles;

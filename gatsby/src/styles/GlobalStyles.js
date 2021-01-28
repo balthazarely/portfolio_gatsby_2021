@@ -36,6 +36,11 @@ const GlobalStyles = createGlobalStyle`
     font-family: Lato;
     font-weight: 700;
   }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .nav-header {
     background: ${({ darkMode }) =>
       darkMode ? DefaultColors.white : DefaultColors.dark};

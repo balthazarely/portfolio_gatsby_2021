@@ -146,6 +146,7 @@ export default function ImageGridStatic({ allProjects }) {
         text="work."
         subtext="some of my recent projects."
         marginBottom="0"
+        // marginTop="60"
       />
       <Content id="work">
         {allProjects.nodes.map((project) => (
