@@ -23,9 +23,40 @@ const TypographyStyles = createGlobalStyle`
             line-height: 70px;
         }
     }
+    h4 {
+        font-weight: 900;
+        font-size: 16px;
+        text-align: center;
+        color: #b3b3b3;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 16px;
+        margin-bottom: 5px;
+    }
+    h5 {
+        font-weight: 900;
+        font-size: 12px;
+        text-align: center;
+        color: #b3b3b3;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 16px;
+        margin-bottom: 5px;
+    }
+   p {
+        font-weight: 300;
+        font-size: 20px;
+        color: #b3b3b3;
+        line-height: 28px;
+        /* text-align: center; */
+        /* text-transform: uppercase; */
+        /* letter-spacing: 1px; */
+        /* margin-top: 16px; */
+        /* margin-bottom: 5px; */
+    }
     .section-header{
         color: ${({ darkMode }) =>
-          darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
+          darkMode ? DefaultColors.darkLess : DefaultColors.white};
         }
     }
     .section-subheader{

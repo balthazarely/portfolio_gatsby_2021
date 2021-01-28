@@ -103,7 +103,7 @@ const listAnimateIn = {
     y: 0,
     transition: {
       duration: 0.2,
-      staggerChildren: 0.02,
+      staggerChildren: 0.08,
       type: 'spring',
       stiffness: 150,
       mass: 0.5,
@@ -140,11 +140,9 @@ const skillsHeader = {
 const lineGrow = {
   visible: {
     height: '100%',
-    x: 0,
   },
   hidden: {
     height: '0%',
-    x: -20,
   },
 };
 
@@ -201,7 +199,7 @@ export default function Skills() {
             <DownwardLine
               initial="hidden"
               variants={lineGrow}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1 }}
               animate={inView ? 'visible' : 'hidden'}
               ref={ref}
             />
@@ -239,9 +237,9 @@ export default function Skills() {
               Other
             </SkillHeader>
             <DownwardLine
-              initial="hidden"
+              nitial="hidden"
               variants={lineGrow}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1 }}
               animate={inView ? 'visible' : 'hidden'}
               ref={ref}
             />

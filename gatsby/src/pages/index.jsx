@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { graphql } from 'gatsby';
 import MainHero from '../components/Hero/MainHero';
-import ImageGrid from '../components/ImageGrid/ImageGrid';
-import AnotherImageGrid from '../components/ImageGrid/AnotherImageGrid';
+import FinalImageGrid from '../components/ImageGrid/FinalImageGrid';
 import Rule from '../components/Common/Rule';
 import Skills from '../components/Common/Skills';
 import Contact from '../components/Common/Contact';
@@ -21,8 +20,8 @@ export default function Index({ data }) {
   return (
     <Layout>
       <MainHero />
-      <Rule />
-      <AnotherImageGrid allProjects={allProjects} />
+      {/* <Rule /> */}
+      <FinalImageGrid allProjects={allProjects} />
       <Skills />
       <Contact />
     </Layout>

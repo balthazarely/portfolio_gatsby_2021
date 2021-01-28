@@ -1,121 +1,97 @@
+import * as React from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { wrap } from '@popmotion/popcorn';
-import Arrow from '../../assets/image/png/signature.png';
+import { wrap } from 'popmotion';
+import styled from 'styled-components';
+
+const TopWrapper = styled(motion.div)`
+  overflow: hidden;
+`;
+
+const ImageWrapper = styled(motion.img)`
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+`;
 
 const variants = {
   enter: (direction) => ({
     x: direction > 0 ? 1000 : -1000,
+    opacity: 0,
   }),
   center: {
-    x: 0,
     zIndex: 1,
+    x: 0,
+    opacity: 1,
   },
   exit: (direction) => ({
-    x: direction < 0 ? 1000 : -1000,
     zIndex: 0,
+    x: direction < 0 ? 1000 : -1000,
+    opacity: 0,
   }),
 };
 
-export default function Slider(props) {
-  const { images } = props;
+// const images = [
+//   'https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png',
+//   'https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png',
+//   'https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png',
+// ];
 
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
+
+const Slider = ({ images }) => {
   const [[page, direction], setPage] = useState([0, 0]);
+
+  // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
+  // then wrap that within 0-2 to find our image ID in the array below. By passing an
+  // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
+  // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
+  const imageIndex = wrap(0, images.length, page);
+
   const paginate = (newDirection) => {
     setPage([page + newDirection, newDirection]);
   };
-  const imageIndex = wrap(0, images.length, page);
 
   return (
-    <div
-      sx={{
-        position: ['relative', null, 'relative'],
-        height: '100%',
-        width: 'auto',
-        overflow: ['hidden', null, 'hidden'],
-      }}
-    >
+    <>
       <AnimatePresence initial={false} custom={direction}>
-        <motion.img
-          key={page}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: 'spring', stiffness: 300, damping: 200 },
-          }}
-          sx={{
-            position: ['absolute', 'absolute', 'absolute'],
-            minHeight: [null, null, '600px'],
-            objectFit: 'cover',
-          }}
-          src={images[imageIndex]}
-          // alt={node.name.replace(/-/g, " ").substring(2)}
-        />
-        })}
-      </AnimatePresence>
+        <TopWrapper>
+          <ImageWrapper
+            key={page}
+            src={images[imageIndex]}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: 'spring', stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
 
-      <div>
-        {images.map((image) => (
-          <img
-            src={image}
-            key={image + 1}
-            sx={{ width: '1px', height: '1px' }}
-            alt={image}
+              if (swipe < -swipeConfidenceThreshold) {
+                paginate(1);
+              } else if (swipe > swipeConfidenceThreshold) {
+                paginate(-1);
+              }
+            }}
           />
-        ))}
+        </TopWrapper>
+      </AnimatePresence>
+      <div className="next" onClick={() => paginate(1)}>
+        ‣
       </div>
-
-      <motion.button
-        whileTap={{
-          scale: 0.8,
-        }}
-        whileHover={{ scale: 1.2 }}
-        css={{
-          position: 'absolute',
-          top: '50%',
-          left: '3%',
-          background: 'none',
-          border: 'none',
-          outline: 'none',
-          zIndex: 2,
-
-          '-webkit-tap-highlight-color': 'rgba(255, 255, 255, 0)',
-        }}
-      >
-        <Arrow
-          css={{
-            height: '28px',
-            width: 'auto',
-            cursor: 'pointer',
-            transform: 'rotate(180deg)',
-          }}
-          onClick={() => paginate(1)}
-        />
-      </motion.button>
-      <motion.button
-        whileTap={{
-          scale: 0.8,
-        }}
-        whileHover={{ scale: 1.2 }}
-        css={{
-          position: 'absolute',
-          top: '50%',
-          right: '3%',
-          background: 'none',
-          border: 'none',
-          outline: 'none',
-          zIndex: 2,
-          '-webkit-tap-highlight-color': 'rgba(255, 255, 255, 0)',
-        }}
-      >
-        <Arrow
-          css={{ height: '28px', width: 'auto', cursor: 'pointer' }}
-          onClick={() => paginate(-1)}
-        />
-      </motion.button>
-    </div>
+      <div className="prev" onClick={() => paginate(-1)}>
+        ‣
+      </div>
+    </>
   );
-}
+};
+
+export default Slider;

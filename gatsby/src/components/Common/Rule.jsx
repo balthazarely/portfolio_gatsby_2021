@@ -38,9 +38,9 @@ export default function Rule() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         ref={ref}
       >
-        <SimpleParralax strength={100}>
-          <RuleDiv />
-        </SimpleParralax>
+        {/* <SimpleParralax strength={100}> */}
+        <RuleDiv />
+        {/* </SimpleParralax> */}
       </motion.div>
     </>
   );

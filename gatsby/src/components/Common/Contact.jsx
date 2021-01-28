@@ -58,7 +58,7 @@ export default function Contact() {
           marginBottom="0"
           marginTop="0"
         />
-        <div className="center">
+        <div className="center" style={{ marginTop: '50px' }}>
           <ButtonLarge>Let's talk</ButtonLarge>
         </div>
       </Content>

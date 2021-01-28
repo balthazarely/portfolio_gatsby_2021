@@ -46,27 +46,27 @@ export default function SectionHeader({
   marginBottom = 20,
 }) {
   const [ref, inView, entry] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
+    threshold: 1,
+    triggerOnce: false,
   });
   console.log(marginTop);
   return (
-    <SimpleParralax strength={50}>
-      <SectionHeaderWrapper
-        marginTop={marginTop}
-        marginBottom={marginBottom}
-        animate={inView ? 'visible' : 'hidden'}
-        variants={titleFadeUpVarient}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        ref={ref}
-      >
-        <div className="header section-header">
-          <div>{text}</div>
-        </div>
-        <div className="subheader section-subheader">
-          <div>{subtext}</div>
-        </div>
-      </SectionHeaderWrapper>
-    </SimpleParralax>
+    // <SimpleParralax strength={50}>
+    <SectionHeaderWrapper
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      animate={inView ? 'visible' : 'hidden'}
+      variants={titleFadeUpVarient}
+      transition={{ duration: 1, ease: 'easeOut' }}
+      ref={ref}
+    >
+      <div className="header section-header">
+        <div>{text}</div>
+      </div>
+      <div className="subheader section-subheader">
+        <div>{subtext}</div>
+      </div>
+    </SectionHeaderWrapper>
+    // </SimpleParralax>
   );
 }
