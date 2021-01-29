@@ -30,6 +30,12 @@ const ProjectDescriptionWrapper = styled(motion.div)`
   .project-description-inner {
     display: flex;
     flex-direction: column;
+    @media ${device.xs} {
+      padding-right: 0px;
+    }
+    @media ${device.md} {
+      padding-right: 10px;
+    }
   }
   p {
     text-align: center;
@@ -38,7 +44,7 @@ const ProjectDescriptionWrapper = styled(motion.div)`
     }
   }
   .image-wrapper {
-    padding: 20px;
+    padding: 20px 0;
     position: relative;
     /* height: auto; */
     height: 600px;
@@ -111,7 +117,7 @@ const itemB = {
 export default function project({ data }) {
   const { project } = data;
   const prepedImages = project.imagesGallery.map((x) => x.asset.url);
-
+  console.log(project);
   return (
     <AnimatePresence>
       <Layout>
@@ -145,10 +151,21 @@ export default function project({ data }) {
                 ))}
               </motion.div>
               <motion.div variants={itemA}>
-                <ButtonLarge marginTop="20" main size="md">
+                <ButtonLarge
+                  marginTop="20"
+                  main
+                  size="md"
+                  toLink={project.link}
+                  newPage
+                >
                   Live Site
                 </ButtonLarge>
-                <ButtonLarge marginTop="20" size="md">
+                <ButtonLarge
+                  marginTop="20"
+                  size="md"
+                  toLink={project.githubLink}
+                  newPage
+                >
                   Github
                 </ButtonLarge>
               </motion.div>

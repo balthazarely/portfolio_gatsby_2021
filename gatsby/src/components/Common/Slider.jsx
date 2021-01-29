@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const TopWrapper = styled(motion.div)`
   overflow: hidden;
+  position: relative;
 `;
 
 const ImageWrapper = styled(motion.img)`
@@ -83,14 +84,14 @@ const Slider = ({ images }) => {
               }
             }}
           />
+          <div className="next" onClick={() => paginate(1)}>
+            ‣
+          </div>
+          <div className="prev" onClick={() => paginate(-1)}>
+            ‣
+          </div>
         </TopWrapper>
       </AnimatePresence>
-      <div className="next" onClick={() => paginate(1)}>
-        ‣
-      </div>
-      <div className="prev" onClick={() => paginate(-1)}>
-        ‣
-      </div>
     </>
   );
 };

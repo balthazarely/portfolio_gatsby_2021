@@ -11,7 +11,7 @@ import { Section } from '../../styles/PageStyles';
 const Content = styled(motion.div)`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1rem;
   max-width: 1280px;
   margin: 0 auto;
@@ -19,7 +19,7 @@ const Content = styled(motion.div)`
 `;
 
 const Item = styled(motion.div)`
-  height: 400px;
+  height: 300px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -49,7 +49,7 @@ const Overlay = styled(motion.div)`
   height: 100%;
   background: rgba(22, 29, 45, 0.35);
   /* mix-blend-mode: multiply; */
-  z-index: 101;
+  z-index: 53;
   /* border-radius: 13px; */
   transition: 0.4s;
 `;
@@ -77,6 +77,9 @@ const ProjectInfoTab = styled(motion.div)`
   .project-description {
     font-size: 14px;
     color: #646464;
+    span {
+      margin-right: 3px;
+    }
   }
 `;
 
@@ -87,15 +90,6 @@ const ProjectName = styled(motion.h3)`
   margin-top: 6px;
 `;
 
-const ProjectCategory = styled(motion.div)`
-  font-weight: 900;
-  font-size: 12px;
-  text-align: center;
-  color: #b3b3b3;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 16px;
-`;
 const projectInfoPopupVariant = {
   rest: { opacity: 0, y: 50 },
   hover: {
@@ -125,6 +119,7 @@ function SingleProject({ projectData }) {
     threshold: 0.5,
     triggerOnce: true,
   });
+  console.log(projectData);
   return (
     <motion.div
       animate={inView ? 'visible' : 'hidden'}
@@ -137,7 +132,11 @@ function SingleProject({ projectData }) {
         <Item initial="rest" animate="rest" whileHover="hover">
           <ProjectInfoTab variants={projectInfoPopupVariant}>
             <div className="project-name">{projectData.name}</div>
-            <div className="project-description">React, MongoDb, Firebase</div>
+            <div className="project-description">
+              {projectData.tags.slice(0, 4).map((tag) => (
+                <span>{tag},</span>
+              ))}
+            </div>
           </ProjectInfoTab>
           <ProjectImage
             variants={hoverProjectVariant}
@@ -155,8 +154,8 @@ function SingleProject({ projectData }) {
         </Item>
       </Link>
       {/* </SimpleParralax> */}
-      <motion.h5>Web App</motion.h5>
-      <ProjectName>Travel App</ProjectName>
+      <motion.h5>{projectData.category}</motion.h5>
+      <ProjectName>{projectData.name}</ProjectName>
     </motion.div>
   );
 }

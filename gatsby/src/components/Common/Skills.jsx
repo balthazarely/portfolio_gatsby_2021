@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaCheck } from 'react-icons/fa';
-import SectionHeader from './SectionHeader';
-import { Section } from '../../styles/PageStyles';
-import SimpleParralax from '../Parralax/SimpleParralax';
 import { device } from '../../utils/breakpoints';
 
 const Content = styled(motion.div)`
@@ -67,7 +64,8 @@ const SkillItem = styled(motion.div)`
   padding-left: 20px;
   /* color: #cecece; */
   @media ${device.sm} {
-    font-size: 16px;
+    font-size: 14px;
+    padding-left: 10px;
   }
   @media ${device.md} {
     font-size: 18px;
@@ -152,12 +150,12 @@ export default function Skills() {
     'Gatsby',
     'Vue',
     'Material-UI',
-    'Bulma/Semantic UI',
+    'Bootstrap/Bulma',
+    'GraphQL',
     'Express',
     'Firebase',
     'MongoDB',
     'GSAP',
-    'Sanity Headless CMS',
     'Framer-Motion',
     'Responsive Design',
   ];

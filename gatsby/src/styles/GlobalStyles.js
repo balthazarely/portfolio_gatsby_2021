@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
   nav {
-    font-family: Lato;
+    font-family: Lato, Helvetica, Arial, sans-serif;
     font-weight: 700;
   }
   .center {
@@ -58,6 +58,8 @@ const GlobalStyles = createGlobalStyle`
       darkMode ? DefaultColors.dark : DefaultColors.white};
   }
   .site-logo {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-weight: 900;
     color: ${({ darkMode }) =>
       darkMode ? DefaultColors.dark : DefaultColors.white};
   }
@@ -80,6 +82,13 @@ const GlobalStyles = createGlobalStyle`
   font-weight: bold;
   font-size: 18px;
   z-index: 2;
+  transition: 0.15s;
+  box-shadow: rgba(3, 3, 3, 0.12) 0px 32px 54px;
+
+  &:hover {
+    background-color: #56B381;
+    color: white;
+  }
 }
 
 .next {

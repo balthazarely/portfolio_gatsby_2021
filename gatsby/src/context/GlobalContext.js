@@ -14,9 +14,13 @@ export function GlobalProvider({ children }) {
   const toggleNavMenu = () => {
     setNavOpen(!navOpen);
   };
+
+  const closeNav = () => {
+    setNavOpen(false);
+  };
   return (
     <GlobalContext.Provider
-      value={{ toggleNavMenu, toggleDarkMode, navOpen, darkMode }}
+      value={{ toggleNavMenu, toggleDarkMode, closeNav, navOpen, darkMode }}
     >
       {children}
     </GlobalContext.Provider>

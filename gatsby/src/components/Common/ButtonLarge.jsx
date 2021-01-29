@@ -1,7 +1,13 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { DefaultColors } from '../../styles/ColorScheme';
+
+const BtnWrapper = styled(motion.a)`
+  display: inline-block;
+  text-decoration: none;
+`;
 
 const Button = styled(motion.button)`
   font-size: ${(props) => `${props.fontSize}`};
@@ -32,9 +38,19 @@ const Button = styled(motion.button)`
   margin-right: 10px;
 `;
 
-export default function ButtonLarge({ children, marginTop = 0, size, main }) {
+export default function ButtonLarge({
+  children,
+  marginTop = 0,
+  size,
+  main,
+  toLink = '/contact',
+  newPage,
+}) {
+  console.log(toLink);
   return (
-    <>
+    // <BtnWrapper>
+    //   <Link to="/">
+    <BtnWrapper href={toLink} target={newPage ? '_blank' : ''}>
       <Button
         highlight={
           main ? DefaultColors.highlight : DefaultColors.hightlightSecondary
@@ -49,6 +65,7 @@ export default function ButtonLarge({ children, marginTop = 0, size, main }) {
       >
         {children}
       </Button>
-    </>
+    </BtnWrapper>
+    // </BtnWrapper>
   );
 }

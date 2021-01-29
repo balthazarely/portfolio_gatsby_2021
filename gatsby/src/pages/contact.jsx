@@ -11,6 +11,9 @@ const Layout = styled(motion.div)`
   padding: 60px 50px;
   text-align: left;
   color: white;
+  form {
+    margin-top: 40px;
+  }
   h1 {
     font-size: 48px;
   }
@@ -62,9 +65,14 @@ export default function Contact({}) {
     <Layout variants={container} initial="hidden" animate="show">
       <motion.h1 variants={itemA}>Contact</motion.h1>
       <motion.p variants={itemA}>
-        wanna talk about a project or give me a job (hopefully)?
+        wanna talk about a project or give me a job?
       </motion.p>
-      <form>
+      <form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bit-field"
+      >
         <motion.input
           type="text"
           name="name"
@@ -84,7 +92,7 @@ export default function Contact({}) {
           variants={itemA}
         />
         <FormButton type="submit" variants={itemA}>
-          submit
+          send
         </FormButton>
       </form>
     </Layout>

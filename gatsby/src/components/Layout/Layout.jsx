@@ -30,8 +30,8 @@ export default function Layout({ children, location }) {
           exit="exit"
         >
           {children}
+          <Footer />
         </PageContainer>
-        <Footer />
       </AnimatePresence>
     </div>
   );

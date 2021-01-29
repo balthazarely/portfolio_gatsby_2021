@@ -17,7 +17,7 @@ const Header = styled.nav`
   left: 0;
   width: 100%;
   height: 70px;
-  z-index: 50;
+  z-index: 55;
   transition: 0.3s;
   @media ${device.lg} {
     &.scrolling {
@@ -50,8 +50,7 @@ const LogoWrapper = styled(motion.div)`
   justify-content: flex-end;
   align-items: center;
   height: 100%;
-  font-family: Lato;
-  font-weight: 700;
+  cursor: pointer;
 `;
 
 const MenuBtnWrapper = styled(motion.nav)`
@@ -164,10 +163,10 @@ export default function Navbar() {
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
-              to="/contact"
+              to="/resume"
               title="contact"
             >
-              places.
+              resume.
             </AnchorLink>
             <div style={{ marginLeft: '20px' }}>
               <ToggleSwitch />

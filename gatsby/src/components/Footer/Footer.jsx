@@ -5,7 +5,12 @@ import { useInView } from 'react-intersection-observer';
 
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 
+const BtnWrapper = styled(motion.a)`
+  display: inline-block;
+  text-decoration: none;
+`;
 const FooterContainer = styled(motion.footer)`
+  margin-top: 30px;
   height: 130px;
   display: flex;
   justify-content: center;
@@ -29,34 +34,20 @@ const FooterContainer = styled(motion.footer)`
   }
 `;
 
-const titleFadeUpVarient = {
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-  hidden: {
-    opacity: 0,
-    y: 10,
-  },
-};
-
 export default function Footer() {
-  const [ref, inView, entry] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
   return (
-    <FooterContainer
-      animate={inView ? 'visible' : 'hidden'}
-      variants={titleFadeUpVarient}
-      transition={{ duration: 1, ease: 'easeOut' }}
-      ref={ref}
-    >
+    <FooterContainer>
       <motion.div className="name footer-item">@ Balthazar Ely</motion.div>
       <motion.div className="icon-container">
-        <FaGithubSquare className="icon footer-item" />
-        <FaLinkedin className="icon footer-item" />
+        <BtnWrapper href="https://github.com/balthazarely" target="_blank">
+          <FaGithubSquare className="icon footer-item" />
+        </BtnWrapper>
+        <BtnWrapper
+          href="https://www.linkedin.com/in/balthazarely/"
+          target="_blank"
+        >
+          <FaLinkedin className="icon footer-item" />
+        </BtnWrapper>
       </motion.div>
     </FooterContainer>
   );

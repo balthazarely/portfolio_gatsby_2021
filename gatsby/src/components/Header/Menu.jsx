@@ -2,13 +2,15 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { device } from '../../utils/breakpoints';
 import GlobalContext from '../../context/GlobalContext';
 import useWindowSize from '../../hooks/useWindowSize';
 import ToggleSwitch from './ToggleSwitch';
 
 const MenuWrapper = styled(motion.div)`
-  z-index: 50;
+  z-index: 105;
   position: fixed;
   left: 0;
   top: 70px;
@@ -28,7 +30,10 @@ const MenuContent = styled(motion.div)`
     font-weight: 900;
     border-bottom: 1px solid #b6b6b6;
     padding-bottom: 12px;
-    cursor: pointer;
+    a {
+      cursor: pointer;
+      text-decoration: none;
+    }
   }
 `;
 
@@ -84,10 +89,66 @@ export default function Menu({}) {
         variants={menuVarient}
       >
         <MenuContent>
-          <div className="menu-link">about</div>
-          <div className="menu-link">work</div>
-          <div className="menu-link">contact</div>
-          <div className="menu-link">resume</div>
+          <div className="menu-link">
+            <AnchorLink
+              className="links nav-link-text mobile"
+              to="/#work"
+              title="Work"
+            >
+              <div
+                onClick={() => {
+                  gContext.closeNav();
+                }}
+              >
+                work.
+              </div>
+            </AnchorLink>
+          </div>
+          <div className="menu-link">
+            <AnchorLink
+              className="links nav-link-text mobile"
+              to="/#skills"
+              title="Work"
+            >
+              <div
+                onClick={() => {
+                  gContext.closeNav();
+                }}
+              >
+                skills.
+              </div>
+            </AnchorLink>
+          </div>
+          <div className="menu-link">
+            <AnchorLink
+              className="links nav-link-text mobile"
+              to="/contact"
+              title="Work"
+            >
+              <div
+                onClick={() => {
+                  gContext.closeNav();
+                }}
+              >
+                contact.
+              </div>
+            </AnchorLink>
+          </div>
+          <div className="menu-link">
+            <AnchorLink
+              className="links nav-link-text mobile"
+              to="/resume"
+              title="Work"
+            >
+              <div
+                onClick={() => {
+                  gContext.closeNav();
+                }}
+              >
+                resume.
+              </div>
+            </AnchorLink>
+          </div>
           <ToggleSwitch />
         </MenuContent>
       </MenuWrapper>

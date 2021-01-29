@@ -116,23 +116,6 @@ export default function MainHero() {
             </SimpleParralax>
           </motion.div>
         </GridWrapper>
-        {/* <motion.div className="center">
-          <AnchorLink to="/#work" title="Work">
-            <DownBtnWrapper
-              variants={hoverProjectVariant}
-              whileHover="hover"
-              initial="hidden"
-              animate="show"
-              transition={{
-                type: 'spring',
-                stiffness: 50,
-                duration: 0.5,
-              }}
-            >
-              <FaRegArrowAltCircleDown className="down-btn" />
-            </DownBtnWrapper>
-          </AnchorLink>
-        </motion.div> */}
       </HeroWrapper>
     </Section>
   );

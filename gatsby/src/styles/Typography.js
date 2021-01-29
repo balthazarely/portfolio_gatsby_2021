@@ -4,7 +4,7 @@ import { DefaultColors } from './ColorScheme';
 
 const TypographyStyles = createGlobalStyle`
     h1,h2,h3,h4,h5,h6,P {
-        font-family: Lato;
+        font-family: Lato, Helvetica, Arial, sans-serif;
         font-weight: 700;
         color: ${({ darkMode }) =>
           darkMode ? DefaultColors.dark : DefaultColors.white};
