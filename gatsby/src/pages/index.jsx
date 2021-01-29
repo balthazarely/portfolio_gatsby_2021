@@ -20,7 +20,7 @@ export default function Index({ data }) {
   return (
     <Layout>
       <MainHero />
-      {/* <Rule /> */}
+      <Rule />
       <FinalImageGrid allProjects={allProjects} />
       <Skills />
       <Contact />

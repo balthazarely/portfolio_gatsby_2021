@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import { DefaultColors } from '../../styles/ColorScheme';
 
 const Button = styled(motion.button)`
-  font-size: ${(props) => `${props.fontSize}`};
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 1.63px;
   text-transform: uppercase;
-  padding: ${(props) => `${props.paddingAmount}`};
+  padding: 18px 25px;
   box-shadow: rgba(3, 3, 3, 0.12) 0px 32px 54px;
   border-radius: 50rem;
   display: inline-flex;
@@ -28,24 +28,19 @@ const Button = styled(motion.button)`
   outline: none !important;
   cursor: pointer;
   z-index: 49;
-  margin-top: ${(props) => `${props.marginTop}px`};
+  margin-top: 15px;
   margin-right: 10px;
 `;
 
-export default function ButtonLarge({ children, marginTop = 0, size, main }) {
+export default function FormButton({ children }) {
   return (
     <>
       <Button
-        highlight={
-          main ? DefaultColors.highlight : DefaultColors.hightlightSecondary
-        }
-        paddingAmount={size === 'md' ? '18px 25px' : '23px 30px'}
-        fontSize={size === 'md' ? '10px' : '13px'}
+        highlight={DefaultColors.highlight}
         whileHover={{
           y: -10,
           transition: { duration: 0.25 },
         }}
-        marginTop={marginTop}
       >
         {children}
       </Button>

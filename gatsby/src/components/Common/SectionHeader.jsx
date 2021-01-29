@@ -49,24 +49,23 @@ export default function SectionHeader({
     threshold: 1,
     triggerOnce: false,
   });
-  console.log(marginTop);
   return (
-    // <SimpleParralax strength={50}>
-    <SectionHeaderWrapper
-      marginTop={marginTop}
-      marginBottom={marginBottom}
-      animate={inView ? 'visible' : 'hidden'}
-      variants={titleFadeUpVarient}
-      transition={{ duration: 1, ease: 'easeOut' }}
-      ref={ref}
-    >
-      <div className="header section-header">
-        <div>{text}</div>
-      </div>
-      <div className="subheader section-subheader">
-        <div>{subtext}</div>
-      </div>
-    </SectionHeaderWrapper>
-    // </SimpleParralax>
+    <SimpleParralax strength={25}>
+      <SectionHeaderWrapper
+        marginTop={marginTop}
+        marginBottom={marginBottom}
+        animate={inView ? 'visible' : 'hidden'}
+        variants={titleFadeUpVarient}
+        transition={{ duration: 1, ease: 'easeOut' }}
+        ref={ref}
+      >
+        <div className="header section-header">
+          <div>{text}</div>
+        </div>
+        <div className="subheader section-subheader">
+          <div>{subtext}</div>
+        </div>
+      </SectionHeaderWrapper>
+    </SimpleParralax>
   );
 }

@@ -148,22 +148,22 @@ export default function Navbar() {
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
-              to="/#about"
+              to="/#skills"
               title="Work"
             >
-              about.
+              skills.
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
-              to="/#contact"
+              to="/contact"
               title="Work"
             >
               contact.
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
-              to="/places"
-              title="Work"
+              to="/contact"
+              title="contact"
             >
               places.
             </AnchorLink>

@@ -27,7 +27,7 @@ const projectFadeUpVariant = {
 
 export default function Rule() {
   const [ref, inView, entry] = useInView({
-    threshold: 0.5,
+    threshold: 1,
     triggerOnce: true,
   });
   return (
@@ -38,9 +38,9 @@ export default function Rule() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         ref={ref}
       >
-        {/* <SimpleParralax strength={100}> */}
-        <RuleDiv />
-        {/* </SimpleParralax> */}
+        <SimpleParralax strength={25}>
+          <RuleDiv />
+        </SimpleParralax>
       </motion.div>
     </>
   );

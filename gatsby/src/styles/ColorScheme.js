@@ -4,6 +4,7 @@ export const DefaultColors = {
   white: '#ffffff',
   whiteLess: '#e0e0e0',
   dark: '#161D2D',
+  darkSubtle: '#222b3f',
   darkLess: '#2a3347',
   highlight: '#56B381',
   hightlightSecondary: '#3D805C',

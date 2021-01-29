@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
-import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../Header/Navbar';
 import GlobalStyles from '../../styles/GlobalStyles';
 import TypographyStyles from '../../styles/Typography';
 import { pageTransitionOne } from '../Animations/PageAnimation';
 import GlobalContext from '../../context/GlobalContext';
+import Footer from '../Footer/Footer';
 
 const PageContainer = styled(motion.div)`
   margin-top: 70px;
@@ -31,6 +31,7 @@ export default function Layout({ children, location }) {
         >
           {children}
         </PageContainer>
+        <Footer />
       </AnimatePresence>
     </div>
   );

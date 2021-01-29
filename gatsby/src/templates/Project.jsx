@@ -23,12 +23,12 @@ const ProjectDescriptionWrapper = styled(motion.div)`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
+  overflow: hidden;
   @media ${device.md} {
     grid-template-columns: 40% 60%;
   }
   .project-description-inner {
     display: flex;
-    /* justify-content: space-between; */
     flex-direction: column;
   }
   p {
@@ -40,7 +40,8 @@ const ProjectDescriptionWrapper = styled(motion.div)`
   .image-wrapper {
     padding: 20px;
     position: relative;
-    height: auto;
+    /* height: auto; */
+    height: 600px;
     width: 100%;
     overflow: hidden;
   }
@@ -154,6 +155,7 @@ export default function project({ data }) {
             </ProjectTags>
           </motion.div>
           <motion.div
+            style={{ overflow: 'hidden' }}
             className="image-wrapper"
             variants={itemB}
             // variants={container}

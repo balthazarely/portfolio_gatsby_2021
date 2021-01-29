@@ -65,6 +65,7 @@ const Slider = ({ images }) => {
             initial="enter"
             animate="center"
             exit="exit"
+            // className="gatsby-image-wrapper"
             transition={{
               x: { type: 'spring', stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },

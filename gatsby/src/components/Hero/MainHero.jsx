@@ -13,7 +13,7 @@ const HeroWrapper = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 50px;
-  height: 90vh;
+  /* height: 70vh; */
   .down-btn {
     color: rgb(86, 179, 129);
     margin-right: 12px;
@@ -116,7 +116,7 @@ export default function MainHero() {
             </SimpleParralax>
           </motion.div>
         </GridWrapper>
-        <motion.div className="center">
+        {/* <motion.div className="center">
           <AnchorLink to="/#work" title="Work">
             <DownBtnWrapper
               variants={hoverProjectVariant}
@@ -132,7 +132,7 @@ export default function MainHero() {
               <FaRegArrowAltCircleDown className="down-btn" />
             </DownBtnWrapper>
           </AnchorLink>
-        </motion.div>
+        </motion.div> */}
       </HeroWrapper>
     </Section>
   );

@@ -89,14 +89,6 @@ const DownwardLine = styled(motion.div)`
   }
 `;
 
-const projectFadeUpVariant = {
-  visible: { opacity: 1, y: 0, transition: { when: 'beforeChildren' } },
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-};
-
 const listAnimateIn = {
   visible: {
     opacity: 1,
@@ -159,19 +151,21 @@ export default function Skills() {
     'React',
     'Gatsby',
     'Vue',
+    'Material-UI',
+    'Bulma/Semantic UI',
     'Express',
     'Firebase',
     'MongoDB',
     'GSAP',
+    'Sanity Headless CMS',
     'Framer-Motion',
     'Responsive Design',
-    'Sanity CMS',
   ];
 
   const otherSkills = [
+    'Graphic Design',
     'Adobe Suite',
-    'Sketch',
-    'Figma',
+    'Sketch/Figma',
     'Print Production',
     'Logo Design',
   ];

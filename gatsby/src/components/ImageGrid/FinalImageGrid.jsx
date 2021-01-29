@@ -1,13 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Masonry from 'react-masonry-component';
 import { useInView } from 'react-intersection-observer';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import { device } from '../../utils/breakpoints';
-import imagePlaceholder from '../../assets/image/jpg/dev/regular/portfolio-1.jpg';
-import SimpleParralax from '../Parralax/SimpleParralax';
 import SectionHeader from '../Common/SectionHeader';
 import { Section } from '../../styles/PageStyles';
 

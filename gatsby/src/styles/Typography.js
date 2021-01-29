@@ -46,8 +46,10 @@ const TypographyStyles = createGlobalStyle`
    p {
         font-weight: 300;
         font-size: 20px;
-        color: #b3b3b3;
+        /* color: #b3b3b3; */
         line-height: 28px;
+        color: ${({ darkMode }) => (darkMode ? 'black' : 'b3b3b3')};
+    }
         /* text-align: center; */
         /* text-transform: uppercase; */
         /* letter-spacing: 1px; */
@@ -84,9 +86,13 @@ const TypographyStyles = createGlobalStyle`
                 }
         }
         .color-block {
-            background: ${({ darkMode }) =>
+            /* background: ${({ darkMode }) =>
               darkMode ? DefaultColors.white : DefaultColors.darkLess};
-                }
+                } */
+            background: ${({ darkMode }) =>
+              darkMode
+                ? DefaultColors.white
+                : 'linear-gradient(to top, rgba(34,43,63,0), rgba(34,43,63,1))'}
         }
             /* background: rgba(38, 45, 56, 0.5); */
         .skill-header-bg{
@@ -94,6 +100,19 @@ const TypographyStyles = createGlobalStyle`
             color: ${({ darkMode }) =>
               darkMode ? DefaultColors.whiteLess : '#161d2d'};
                 }
+        }
+        .tag-tech {
+          color: ${({ darkMode }) =>
+            darkMode ? DefaultColors.darkLess : DefaultColors.white};
+        }
+        .tag-tech {
+          color: ${({ darkMode }) =>
+            darkMode ? DefaultColors.darkLess : DefaultColors.white};
+        }
+        .footer-item {
+          color: ${({ darkMode }) =>
+            darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
+        }
         }
 `;
 
