@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './src/components/Layout/layout';
+import Layout from './src/components/Layout/Layout';
 import { GlobalProvider } from './src/context/GlobalContext';
 
 const transitionDelay = 250;
