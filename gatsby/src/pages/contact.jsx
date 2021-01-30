@@ -87,6 +87,13 @@ export default function Contact({}) {
           placeholder="your email"
           variants={itemA}
         />
+        {/* <motion.input
+          required
+          type="email"
+          name="email"
+          placeholder="your email"
+          variants={itemA}
+        /> */}
         <motion.textarea
           type="text"
           required
