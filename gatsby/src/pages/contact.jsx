@@ -81,8 +81,8 @@ export default function Contact({}) {
           variants={itemA}
         />
         <motion.input
-          type="email"
           required
+          type="email"
           name="email"
           placeholder="your email"
           variants={itemA}
