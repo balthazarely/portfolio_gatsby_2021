@@ -60,14 +60,14 @@ const itemA = {
   show: { opacity: 1, y: 0, rotate: 0 },
 };
 
-export default function Contact({}) {
+export default function Contact() {
   return (
     <Layout variants={container} initial="hidden" animate="show">
       <motion.h1 variants={itemA}>Contact</motion.h1>
       <motion.p variants={itemA}>
         wanna talk about a project or give me a job (hopefully)?
       </motion.p>
-      <form
+      {/* <form
         name="contact"
         method="post"
         data-netlify="true"
@@ -80,6 +80,7 @@ export default function Contact({}) {
           placeholder="your name"
           variants={itemA}
         />
+
         <motion.input
           required
           type="email"
@@ -87,13 +88,6 @@ export default function Contact({}) {
           placeholder="your email"
           variants={itemA}
         />
-        {/* <motion.input
-          required
-          type="email"
-          name="email"
-          placeholder="your email"
-          variants={itemA}
-        /> */}
         <motion.textarea
           type="text"
           required
@@ -104,7 +98,7 @@ export default function Contact({}) {
         <FormButton type="submit" variants={itemA}>
           send
         </FormButton>
-      </form>
+      </form> */}
     </Layout>
   );
 }
