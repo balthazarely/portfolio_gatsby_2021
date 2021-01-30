@@ -75,14 +75,12 @@ export default function Contact() {
       >
         <input
           type="text"
-          required
           name="name"
           placeholder="your name"
           // variants={itemA}
         />
 
         <input
-          required
           type="email"
           name="email"
           placeholder="your email"
@@ -90,7 +88,6 @@ export default function Contact() {
         />
         <textarea
           type="text"
-          required
           name="message"
           placeholder="your message"
           // variants={itemA}
