@@ -99,7 +99,10 @@ const GlobalStyles = createGlobalStyle`
   left: 10px;
   transform: scale(-1);
 }
-
+.invalid-feedback {
+  color: #e0e0e0;
+  margin-top: -10px;
+}
 
 
 
