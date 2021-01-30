@@ -67,38 +67,38 @@ export default function Contact() {
       <motion.p variants={itemA}>
         wanna talk about a project or give me a job (hopefully)?
       </motion.p>
-      {/* <form
+      <form
         name="contact"
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bit-field"
       >
-        <motion.input
+        <input
           type="text"
           required
           name="name"
           placeholder="your name"
-          variants={itemA}
+          // variants={itemA}
         />
 
-        <motion.input
+        <input
           required
           type="email"
           name="email"
           placeholder="your email"
-          variants={itemA}
+          // variants={itemA}
         />
-        <motion.textarea
+        <textarea
           type="text"
           required
           name="message"
           placeholder="your message"
-          variants={itemA}
+          // variants={itemA}
         />
         <FormButton type="submit" variants={itemA}>
           send
         </FormButton>
-      </form> */}
+      </form>
     </Layout>
   );
 }
