@@ -110,35 +110,35 @@ export default function Contact() {
             <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
-        <p>
+        <motion.p variants={itemA}>
           <input
             type="text"
             name="name"
             onChange={handleChange}
             placeholder="your name"
           />
-        </p>
-        <p>
+        </motion.p>
+        <motion.p variants={itemA}>
           <input
             type="email"
             name="email"
             onChange={handleChange}
             placeholder="your email"
           />
-        </p>
-        <p>
+        </motion.p>
+        <motion.p variants={itemA}>
           <textarea
             name="message"
             onChange={handleChange}
             placeholder="your message"
           />
-        </p>
-        <p>
+        </motion.p>
+        <motion.p>
           {/* <button type="submit">Send</button> */}
           <FormButton type="submit" variants={itemA}>
             send
           </FormButton>
-        </p>
+        </motion.p>
       </form>
     </Layout>
   );
