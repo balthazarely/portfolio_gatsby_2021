@@ -122,7 +122,7 @@ export default function Menu({}) {
           <div className="menu-link">
             <AnchorLink
               className="links nav-link-text mobile"
-              to="/contact"
+              to="/contact/"
               title="Work"
             >
               <div

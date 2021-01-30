@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import FormButton from '../components/Common/FormButton';
@@ -65,29 +65,9 @@ export default function Contact() {
     <Layout variants={container} initial="hidden" animate="show">
       <motion.h1 variants={itemA}>Contact</motion.h1>
       <motion.p variants={itemA}>
-        wanna talk about a project or give me a job?
+        wanna talk about a project or give me a job (hopefully)?
       </motion.p>
-      <form name="contact-form" method="POST" data-netlify="true">
-        <p>
-          <label>
-            Your Name: <input type="text" name="name" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Email: <input type="email" name="email" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message: <textarea name="message" />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-      {/* <form
+      <form
         name="contact"
         method="post"
         data-netlify="true"
@@ -97,22 +77,24 @@ export default function Contact() {
           type="text"
           name="name"
           placeholder="your name"
+          //   variants={itemA}
         />
-
         <input
           type="email"
           name="email"
           placeholder="your email"
+          //   variants={itemA}
         />
         <textarea
           type="text"
           name="message"
           placeholder="your message"
+          //   variants={itemA}
         />
         <FormButton type="submit" variants={itemA}>
           send
         </FormButton>
-      </form> */}
+      </form>
     </Layout>
   );
 }

@@ -156,7 +156,7 @@ export default function Navbar() {
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
-              to="/contact"
+              to="/contact/"
               title="Work"
             >
               contact.
