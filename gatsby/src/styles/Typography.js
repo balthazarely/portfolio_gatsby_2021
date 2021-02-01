@@ -76,9 +76,11 @@ const TypographyStyles = createGlobalStyle`
         } */
         }
         .nav-link-hov {
-            transition: 0.1s;
+            transition: 0.05s;
           &:hover {
-            color: white;
+            ${({ darkMode }) =>
+              darkMode ? DefaultColors.darkLess : DefaultColors.white};
+            }
           /* transform: scale(1.05); */
           }
         }
