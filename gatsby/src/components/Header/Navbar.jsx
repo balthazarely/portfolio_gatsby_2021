@@ -9,6 +9,7 @@ import NavIcon from './NavIcon';
 import GlobalContext from '../../context/GlobalContext';
 import Menu from './Menu';
 import ToggleSwitch from './ToggleSwitch';
+import downloadFile from '../../assets/resume/Balthazar_Ely_Resume.pdf';
 
 const Header = styled.nav`
   padding: 0;
@@ -67,7 +68,7 @@ const MenuBtnWrapper = styled(motion.nav)`
     position: absolute !important;
     right: 0;
     visibility: visible;
-    @media ${device.md} {
+    @media ${device.lg} {
       visibility: hidden;
       }
     }
@@ -90,7 +91,7 @@ const LinkWrapper = styled(motion.div)`
     font-weight: 700;
     margin-left: 20px;
   }
-  @media ${device.md} {
+  @media ${device.lg} {
     visibility: visible;
   }
 `;
@@ -145,29 +146,36 @@ export default function Navbar() {
               to="/#work"
               title="Work"
             >
-              work.
+              <div className="nav-link-hov">work.</div>
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
               to="/#skills"
               title="Work"
             >
-              skills.
+              <div className="nav-link-hov">skills.</div>
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
               to="/contact/"
               title="Work"
             >
-              contact.
+              <div className="nav-link-hov">contact.</div>
             </AnchorLink>
-            <AnchorLink
-              className="links nav-link-text"
-              to="/resume"
-              title="contact"
+            <a
+              className="links nav-link-text mobile"
+              href="https://bannerbin-552ae.web.app/"
+              target="_blank"
             >
-              resume.
-            </AnchorLink>
+              <div className="nav-link-hov">html banners.</div>
+            </a>
+            <a
+              className="links nav-link-text"
+              href={downloadFile}
+              target="_blank"
+            >
+              <div className="nav-link-hov">resume.</div>
+            </a>
             <div style={{ marginLeft: '20px' }}>
               <ToggleSwitch />
             </div>

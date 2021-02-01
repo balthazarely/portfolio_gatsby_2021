@@ -11,7 +11,7 @@ import { Section } from '../../styles/PageStyles';
 
 const HeroWrapper = styled(motion.div)`
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 60px 50px;
   /* height: 70vh; */
   .down-btn {
@@ -22,7 +22,7 @@ const HeroWrapper = styled(motion.div)`
 `;
 
 const GridWrapper = styled(motion.div)`
-  margin: 60px 0px;
+  margin: 20px 0px 60px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,11 +91,11 @@ const hoverProjectVariant = {
   },
 };
 
-export default function MainHero() {
+export default function MainHero({ headshot }) {
   return (
     <Section>
       <HeroWrapper>
-        <ProfilePhoto />
+        <ProfilePhoto headshot={headshot} />
         <GridWrapper variants={container} initial="hidden" animate="show">
           <div>
             <SimpleParralax strength={350}>

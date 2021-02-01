@@ -8,6 +8,7 @@ import { device } from '../../utils/breakpoints';
 import GlobalContext from '../../context/GlobalContext';
 import useWindowSize from '../../hooks/useWindowSize';
 import ToggleSwitch from './ToggleSwitch';
+import downloadFile from '../../assets/resume/Balthazar_Ely_Resume.pdf';
 
 const MenuWrapper = styled(motion.div)`
   z-index: 105;
@@ -80,12 +81,12 @@ export default function Menu({}) {
     <>
       <Overlay
         variants={overlayVarient}
-        animate={windowSize < 768 && gContext.navOpen ? 'visible' : 'hidden'}
+        animate={windowSize < 992 && gContext.navOpen ? 'visible' : 'hidden'}
       />
       <MenuWrapper
         className="nav-menu"
         initial={false}
-        animate={windowSize < 768 && gContext.navOpen ? 'visible' : 'hidden'}
+        animate={windowSize < 992 && gContext.navOpen ? 'visible' : 'hidden'}
         variants={menuVarient}
       >
         <MenuContent>
@@ -96,6 +97,7 @@ export default function Menu({}) {
               title="Work"
             >
               <div
+                className="nav-link-hov"
                 onClick={() => {
                   gContext.closeNav();
                 }}
@@ -111,6 +113,7 @@ export default function Menu({}) {
               title="Work"
             >
               <div
+                className="nav-link-hov"
                 onClick={() => {
                   gContext.closeNav();
                 }}
@@ -126,6 +129,7 @@ export default function Menu({}) {
               title="Work"
             >
               <div
+                className="nav-link-hov"
                 onClick={() => {
                   gContext.closeNav();
                 }}
@@ -135,19 +139,29 @@ export default function Menu({}) {
             </AnchorLink>
           </div>
           <div className="menu-link">
-            <AnchorLink
+            <a
               className="links nav-link-text mobile"
-              to="/resume"
-              title="Work"
+              href="https://bannerbin-552ae.web.app/"
+              target="_blank"
             >
               <div
+                className="nav-link-hov"
                 onClick={() => {
                   gContext.closeNav();
                 }}
               >
-                resume.
+                html banners.
               </div>
-            </AnchorLink>
+            </a>
+          </div>
+          <div className="menu-link">
+            <a
+              className="links nav-link-text mobile"
+              href={downloadFile}
+              target="_blank"
+            >
+              <div className="nav-link-hov">resume.</div>
+            </a>
           </div>
           <ToggleSwitch />
         </MenuContent>

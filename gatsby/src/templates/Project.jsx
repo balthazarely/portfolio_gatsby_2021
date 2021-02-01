@@ -25,7 +25,7 @@ const ProjectDescriptionWrapper = styled(motion.div)`
   grid-template-columns: 1fr;
   overflow: hidden;
   @media ${device.md} {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 60% 40%;
   }
   .project-description-inner {
     display: flex;
@@ -34,20 +34,31 @@ const ProjectDescriptionWrapper = styled(motion.div)`
       padding-right: 0px;
     }
     @media ${device.md} {
-      padding-right: 10px;
+      padding-left: 20px;
     }
   }
   p {
     text-align: center;
+    font-size: 17px;
+    @media ${device.sm} {
+      text-align: left;
+      font-size: 17px;
+    }
     @media ${device.md} {
       text-align: left;
+      font-size: 17px;
+    }
+    @media ${device.lg} {
+      text-align: left;
+      font-size: 20px;
+      /* font-size: 20px; */
     }
   }
   .image-wrapper {
     padding: 20px 0;
     position: relative;
     /* height: auto; */
-    height: 600px;
+    /* height: 600px; */
     width: 100%;
     overflow: hidden;
   }
@@ -128,6 +139,16 @@ export default function project({ data }) {
           initial="hidden"
           animate="show"
         >
+          <motion.div
+            style={{ overflow: 'hidden' }}
+            className="image-wrapper"
+            variants={itemB}
+            // variants={container}
+            initial="hidden"
+            animate="show"
+          >
+            <Slider images={prepedImages} />
+          </motion.div>
           <motion.div className="project-description-inner">
             <motion.p variants={itemA}>{project.description}</motion.p>
             <ProjectTags>
@@ -170,22 +191,6 @@ export default function project({ data }) {
                 </ButtonLarge>
               </motion.div>
             </ProjectTags>
-          </motion.div>
-          <motion.div
-            style={{ overflow: 'hidden' }}
-            className="image-wrapper"
-            variants={itemB}
-            // variants={container}
-            initial="hidden"
-            animate="show"
-          >
-            {/* <Img
-            className="project-image gatsby-image-wrapper"
-            // fluid={project.coverImage.asset.fluid}
-            fluid={project.imagesGallery[0].asset.fluid}
-            alt={project.name}
-          /> */}
-            <Slider images={prepedImages} />
           </motion.div>
         </ProjectDescriptionWrapper>
       </Layout>

@@ -30,5 +30,13 @@ export default {
       type: 'string',
       description: 'P in the body',
     },
+    {
+      name: 'headshot',
+      title: 'Headshot',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
   ],
 };

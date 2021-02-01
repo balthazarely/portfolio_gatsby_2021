@@ -119,7 +119,18 @@ function SingleProject({ projectData }) {
     threshold: 0.5,
     triggerOnce: true,
   });
-  console.log(projectData);
+
+  // Creating list of tags
+  const projectTagsSliced = projectData.tags.slice(0, 4);
+  const newTagList = projectTagsSliced.map((tag, index) => (
+    <>
+      {tag}
+      {index < projectTagsSliced.length - 1 ? ',\u00A0' : ''}
+    </>
+  ));
+
+  console.log(newTagList);
+
   return (
     <motion.div
       animate={inView ? 'visible' : 'hidden'}
@@ -132,11 +143,7 @@ function SingleProject({ projectData }) {
         <Item initial="rest" animate="rest" whileHover="hover">
           <ProjectInfoTab variants={projectInfoPopupVariant}>
             <div className="project-name">{projectData.name}</div>
-            <div className="project-description">
-              {projectData.tags.slice(0, 4).map((tag) => (
-                <span>{tag},</span>
-              ))}
-            </div>
+            <div className="project-description">{newTagList}</div>
           </ProjectInfoTab>
           <ProjectImage
             variants={hoverProjectVariant}
@@ -153,9 +160,11 @@ function SingleProject({ projectData }) {
           </ProjectImage>
         </Item>
       </Link>
-      {/* </SimpleParralax> */}
+
       <motion.h5>{projectData.category}</motion.h5>
-      <ProjectName>{projectData.name}</ProjectName>
+      <Link to={`/${projectData.slug.current}`}>
+        <ProjectName>{projectData.name}</ProjectName>
+      </Link>
     </motion.div>
   );
 }

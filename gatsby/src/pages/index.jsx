@@ -16,10 +16,11 @@ const Layout = styled(motion.div)`
 
 export default function Index({ data }) {
   const { allProjects } = data;
+  const { headshot } = data;
 
   return (
     <Layout>
-      <MainHero />
+      <MainHero headshot={headshot} />
       <Rule />
       <FinalImageGrid allProjects={allProjects} />
       <Skills />
@@ -29,6 +30,15 @@ export default function Index({ data }) {
 }
 export const query = graphql`
   query MyQuery {
+    headshot: sanityCopy {
+      headshot {
+        asset {
+          fluid(maxWidth: 500) {
+            src
+          }
+        }
+      }
+    }
     allProjects: allSanityProjects(sort: { order: ASC, fields: order }) {
       nodes {
         name

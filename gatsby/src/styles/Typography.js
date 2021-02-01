@@ -75,6 +75,13 @@ const TypographyStyles = createGlobalStyle`
             transition: .2s;
         } */
         }
+        .nav-link-hov {
+            transition: 0.1s;
+          &:hover {
+            color: white;
+          /* transform: scale(1.05); */
+          }
+        }
         .skill-header{
         color: ${({ darkMode }) =>
           darkMode ? DefaultColors.darkLess : DefaultColors.white};

@@ -133,7 +133,7 @@ export default function Contact() {
             placeholder="your message"
           />
         </motion.p>
-        <motion.p>
+        <motion.p variants={itemA}>
           {/* <button type="submit">Send</button> */}
           <FormButton type="submit" variants={itemA}>
             send
