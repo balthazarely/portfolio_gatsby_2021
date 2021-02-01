@@ -197,8 +197,9 @@ export default function Skills() {
             />
             <motion.div className="list">
               {devSkills.map((skill) => (
-                <motion.div variants={skillFadeUp} initial="hidden">
+                <motion.div variants={skillFadeUp} initial="hidden" key={skill}>
                   <SkillItem
+                    key={skill}
                     className="skill"
                     initial="hidden"
                     variants={skillFadeUp}
@@ -206,6 +207,7 @@ export default function Skills() {
                     ref={ref}
                   >
                     <FaCheck
+                      key={skill}
                       style={{
                         color: 'rgb(86, 179, 129)',
                         marginRight: '8px',
@@ -237,15 +239,17 @@ export default function Skills() {
             />
             <motion.div className="list">
               {otherSkills.map((skill) => (
-                <motion.div variants={skillFadeUp} initial="hidden">
+                <motion.div variants={skillFadeUp} initial="hidden" key={skill}>
                   <SkillItem
                     className="skill"
                     initial="hidden"
                     variants={skillFadeUp}
                     animate={inView ? 'visible' : 'hidden'}
                     ref={ref}
+                    key={skill}
                   >
                     <FaCheck
+                      key={skill}
                       style={{
                         color: 'rgb(86, 179, 129)',
                         marginRight: '8px',

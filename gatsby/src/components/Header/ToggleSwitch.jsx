@@ -14,7 +14,7 @@ export default function ToggleSwitch() {
   return (
     <label>
       <Switch
-        offColor="#82d88"
+        // offColor="#82d88"
         onColor="#eeeeee"
         height={23}
         width={48}

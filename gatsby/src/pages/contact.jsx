@@ -33,7 +33,7 @@ const Layout = styled(motion.div)`
     border-bottom: 1px solid #b3b3b3;
     max-width: 500px;
     width: 100%;
-    color: white;
+    /* color: white; */
   }
   textarea {
     height: 150px;
@@ -119,6 +119,7 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="your name"
               required
+              className="input-text-contact-form"
             />
           </motion.p>
           <motion.p variants={itemA}>

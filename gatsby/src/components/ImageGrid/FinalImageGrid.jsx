@@ -48,9 +48,7 @@ const Overlay = styled(motion.div)`
   width: 100%;
   height: 100%;
   background: rgba(22, 29, 45, 0.35);
-  /* mix-blend-mode: multiply; */
   z-index: 53;
-  /* border-radius: 13px; */
   transition: 0.4s;
 `;
 
@@ -99,10 +97,10 @@ const projectInfoPopupVariant = {
 };
 
 const hoverProjectVariant = {
-  rest: { scale: 1 },
+  rest: { scale: 1, background: 'rgba(22, 29, 45, 0.35)' },
   hover: {
     scale: 1.05,
-    background: 'transparent',
+    background: 'rgba(22, 29, 45, 0)',
   },
 };
 
@@ -117,19 +115,17 @@ const projectFadeUpVariant = {
 function SingleProject({ projectData }) {
   const [ref, inView, entry] = useInView({
     threshold: 0.5,
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   // Creating list of tags
   const projectTagsSliced = projectData.tags.slice(0, 4);
   const newTagList = projectTagsSliced.map((tag, index) => (
-    <>
+    <span key={index}>
       {tag}
       {index < projectTagsSliced.length - 1 ? ',\u00A0' : ''}
-    </>
+    </span>
   ));
-
-  console.log(newTagList);
 
   return (
     <motion.div
@@ -138,7 +134,6 @@ function SingleProject({ projectData }) {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       ref={ref}
     >
-      {/* <SimpleParralax strength={200}> */}
       <Link to={`/${projectData.slug.current}`}>
         <Item initial="rest" animate="rest" whileHover="hover">
           <ProjectInfoTab variants={projectInfoPopupVariant}>
@@ -181,7 +176,7 @@ export default function FinalImageGrid({ allProjects }) {
       <Content id="work">
         {allProjects.nodes.map((project) => (
           <>
-            <SingleProject projectData={project} />
+            <SingleProject projectData={project} key={project.name} />
           </>
         ))}
       </Content>

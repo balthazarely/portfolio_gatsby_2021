@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { DefaultColors } from '../../styles/ColorScheme';
 
-const BtnWrapper = styled(motion.a)`
+const BtnWrapper = styled(motion.div)`
   display: inline-block;
   text-decoration: none;
 `;

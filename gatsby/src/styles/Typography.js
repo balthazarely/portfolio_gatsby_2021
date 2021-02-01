@@ -121,6 +121,11 @@ const TypographyStyles = createGlobalStyle`
             darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
         }
         }
+        .input-text-contact-form {
+          color: ${({ darkMode }) =>
+            darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
+        }
+        }
 `;
 
 export default TypographyStyles;

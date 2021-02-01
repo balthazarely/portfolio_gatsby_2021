@@ -36,7 +36,7 @@ export const query = graphql`
       headshot {
         asset {
           fluid(maxWidth: 500) {
-            src
+            ...GatsbySanityImageFluid
           }
         }
       }
