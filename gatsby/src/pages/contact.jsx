@@ -129,6 +129,7 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="your email"
               required
+              className="input-text-contact-form"
             />
           </motion.p>
           <motion.p variants={itemA}>
@@ -137,6 +138,7 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="your message"
               required
+              className="input-text-contact-form"
             />
           </motion.p>
           <motion.p variants={itemA}>
