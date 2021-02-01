@@ -131,7 +131,10 @@ export default function Navbar() {
         <NavbarContainer>
           <LogoWrapper>
             <StyledLink to="/" className="site-logo">
-              balthazar.
+              <motion.div whileHover={{ scale: 1.05 }}>
+                balthazar.
+                <span style={{ color: '#56B381' }}>dev</span>
+              </motion.div>
             </StyledLink>
           </LogoWrapper>
           <MenuBtnWrapper>
@@ -146,35 +149,45 @@ export default function Navbar() {
               to="/#work"
               title="Work"
             >
-              <div className="nav-link-hov">work.</div>
+              <motion.div whileHover={{ scale: 1.1 }} className="nav-link-hov">
+                work.
+              </motion.div>
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
               to="/#skills"
               title="Work"
             >
-              <div className="nav-link-hov">skills.</div>
+              <motion.div whileHover={{ scale: 1.1 }} className="nav-link-hov">
+                skills.
+              </motion.div>
             </AnchorLink>
             <AnchorLink
               className="links nav-link-text"
               to="/contact/"
               title="Work"
             >
-              <div className="nav-link-hov">contact.</div>
+              <motion.div whileHover={{ scale: 1.1 }} className="nav-link-hov">
+                contact.
+              </motion.div>
             </AnchorLink>
             <a
               className="links nav-link-text mobile"
               href="https://bannerbin-552ae.web.app/"
               target="_blank"
             >
-              <div className="nav-link-hov">html banners.</div>
+              <motion.div whileHover={{ scale: 1.1 }} className="nav-link-hov">
+                html banners.
+              </motion.div>
             </a>
             <a
               className="links nav-link-text"
               href={downloadFile}
               target="_blank"
             >
-              <div className="nav-link-hov">resume.</div>
+              <motion.div whileHover={{ scale: 1.1 }} className="nav-link-hov">
+                resume.
+              </motion.div>
             </a>
 
             <div style={{ marginLeft: '20px' }}>
