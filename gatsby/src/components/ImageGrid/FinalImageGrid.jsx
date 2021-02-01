@@ -34,7 +34,6 @@ const ProjectImage = styled(motion.div)`
   width: 100%;
   overflow: hidden;
   .project-image {
-    /* border-radius: 15px; */
     overflow: hidden;
     transform: scale(1);
     width: 100%;

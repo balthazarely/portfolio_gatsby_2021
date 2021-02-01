@@ -22,17 +22,31 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      duration: 1,
+      // duration: 1,
       staggerChildren: 0.1,
       delayChildren: 0.35,
-      ease: 'easeOut',
+      type: 'spring',
+      stiffness: 100,
     },
   },
 };
 
 const itemB = {
-  hidden: { opacity: 0, scale: 0 },
-  show: { opacity: 1, scale: 1 },
+  hidden: {
+    y: 20,
+    opacity: 0,
+    // scale: 0
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    // scale: 1,
+    transition: {
+      duration: 0.25,
+      type: 'spring',
+      stiffness: 100,
+    },
+  },
 };
 
 export default function ProfilePhoto({ headshot }) {

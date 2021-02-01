@@ -44,19 +44,19 @@ const GridWrapper = styled(motion.div)`
 `;
 
 const container = {
-  hidden: { rotate: 90 },
+  hidden: { rotate: 0 },
   show: {
     rotate: 0,
     transition: {
-      staggerChildren: 0.25,
-      delayChildren: 0.35,
+      staggerChildren: 0.2,
+      delayChildren: 0.15,
     },
   },
 };
 
 const itemA = {
-  hidden: { opacity: 0, y: 20, rotate: 3 },
-  show: { opacity: 1, y: 0, rotate: 0 },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, type: 'spring', stiffness: 50 },
 };
 
 export default function MainHero({ headshot }) {
@@ -82,7 +82,7 @@ export default function MainHero({ headshot }) {
           </div>
           <motion.div className="btn-wrapper" variants={itemA}>
             {/* <SimpleParralax strength={250}> */}
-            <motion.div initial="hidden" animate="visibile">
+            <motion.div>
               <ButtonContact main>get in touch</ButtonContact>
             </motion.div>
             {/* </SimpleParralax> */}

@@ -11,7 +11,7 @@ import SEO from '../components/SEO/SEO';
 const Layout = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 50px;
+  padding: 60px 10px;
   text-align: center;
 `;
 
@@ -128,7 +128,7 @@ const itemB = {
 export default function project({ data }) {
   const { project } = data;
   const prepedImages = project.imagesGallery.map((x) => x.asset.url);
-  console.log(project);
+
   return (
     <>
       <SEO title={project.name} />

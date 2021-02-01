@@ -22,7 +22,6 @@ const Content = styled(motion.div)`
 const InnerContainer = styled(motion.div)`
   z-index: 150;
   display: grid;
-  display: grid;
   grid-template-columns: 1fr;
   max-width: 1000px;
   margin: 60px auto;
@@ -42,6 +41,12 @@ const SkillsContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    @media ${device.xs} {
+      height: 285px;
+    }
+    @media ${device.sm} {
+      height: 170px;
+    }
   }
 `;
 

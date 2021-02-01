@@ -87,14 +87,13 @@ export default function Menu({}) {
         variants={menuVarient}
       >
         <MenuContent>
-          <div className="menu-link">
+          <div className="menu-link ">
             <AnchorLink
-              className="links nav-link-text mobile"
+              className="links nav-link-text mobile "
               to="/#work"
               title="Work"
             >
               <div
-                className="nav-link-hov"
                 onClick={() => {
                   gContext.closeNav();
                 }}
