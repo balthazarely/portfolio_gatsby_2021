@@ -94,7 +94,7 @@ export default function Contact() {
       <Layout variants={container} initial="hidden" animate="show">
         <motion.h1 variants={itemA}>Contact</motion.h1>
         <motion.p variants={itemA}>
-          wanna talk about a project or give me a job (hopefully)?
+          Wanna talk about a project or position?
         </motion.p>
         <form
           name="contact"

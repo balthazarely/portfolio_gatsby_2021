@@ -9,6 +9,10 @@ const TypographyStyles = createGlobalStyle`
         color: ${({ darkMode }) =>
           darkMode ? DefaultColors.dark : DefaultColors.white};
     }
+    * {
+      font-family: Lato, Helvetica, Arial, sans-serif;
+        /* font-weight: 700; */
+    }
     h1 {
         font-size: 50px;
         font-weight: 900;

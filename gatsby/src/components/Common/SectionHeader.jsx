@@ -13,27 +13,23 @@ const SectionHeaderWrapper = styled(motion.div)`
   margin-bottom: ${(props) => `${props.marginBottom}px`};
   /* border: 2px solid pink; */
   .header {
-    font-size: 46px;
-    font-weight: 700;
-    margin-bottom: 10px;
+    /* font-size: 46px;
+    font-weight: 700; */
+    /* margin-bottom: 10px; */
     /* border: 2px solid red; */
   }
   h1 {
     font-size: 46px;
-    font-weight: 700;
-    margin-bottom: 0px;
-    /* border: 2px solid red; */
+    font-weight: 900;
+    margin-bottom: -10px;
   }
   h2 {
     font-size: 20px;
     font-weight: 300;
-    margin-bottom: 16px;
-    /* border: 2px solid red; */
+    margin-bottom: 20px;
   }
   .subheader {
     /* border: 2px solid red; */
-    font-size: 18px;
-    font-weight: 300;
   }
 `;
 
@@ -59,7 +55,7 @@ export default function SectionHeader({
 }) {
   const [ref, inView, entry] = useInView({
     threshold: 1,
-    triggerOnce: false,
+    triggerOnce: true,
   });
   return (
     // <SimpleParralax strength={25}>

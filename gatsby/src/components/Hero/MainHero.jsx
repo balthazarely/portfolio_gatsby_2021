@@ -48,7 +48,7 @@ const container = {
   show: {
     rotate: 0,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.25,
       delayChildren: 0.35,
     },
   },
@@ -68,13 +68,15 @@ export default function MainHero({ headshot }) {
           <div>
             {/* <SimpleParralax strength={350}> */}
             <motion.h1 variants={itemA}>
-              Complete Solution for SaaS Business.
+              Front End Developer <span style={{ fontWeight: 300 }}>from </span>
+              Denver, CO.
             </motion.h1>
             {/* </SimpleParralax> */}
             {/* <SimpleParralax strength={300}> */}
             <motion.h2 variants={itemA}>
-              I create websites for the modern world, not matter how
-              insignificant they seem
+              Hi, I'm Balthazar. I am a passionate web developer with extensive
+              experience in graphic design. I enjoy building web apps, beautiful
+              user-interfaces, and anything that involves Javascript.
             </motion.h2>
             {/* </SimpleParralax> */}
           </div>

@@ -7,7 +7,7 @@ import SimpleParralax from '../Parralax/SimpleParralax';
 const RuleDiv = styled(motion.div)`
   background: #a1a1a1;
   max-width: 1200px;
-  width: 50%;
+  width: 75%;
   margin: 20px auto 60px;
   height: 2px;
 `;
