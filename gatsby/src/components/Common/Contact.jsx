@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import ButtonLarge from './ButtonLarge';
+import ButtonContact from './ButtonContact';
 
 const Layout = styled(motion.div)`
   max-width: 1200px;
@@ -34,11 +34,6 @@ const listAnimateIn = {
   },
 };
 
-const itemA = {
-  hidden: { opacity: 0, y: 20, rotate: 0 },
-  show: { opacity: 1, y: 0, rotate: 0 },
-};
-
 export default function Contact() {
   const [ref, inView, entry] = useInView({
     threshold: 0.5,
@@ -47,14 +42,17 @@ export default function Contact() {
 
   return (
     <Layout
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       animate={inView ? 'visible' : 'hidden'}
       ref={ref}
       variants={listAnimateIn}
 
       // animate="show"
     >
-      <motion.h2>Want to talk more?</motion.h2>
-      <ButtonLarge main>get in touch</ButtonLarge>
+      <motion.div initial="hidden" animate="visibile">
+        <motion.h2>Want to talk more?</motion.h2>
+        <ButtonContact main>get in touch</ButtonContact>
+      </motion.div>
     </Layout>
   );
 }

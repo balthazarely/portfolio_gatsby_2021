@@ -8,6 +8,7 @@ import ButtonLarge from '../Common/ButtonLarge';
 import ProfilePhoto from '../Common/ProfilePhoto';
 import SimpleParralax from '../Parralax/SimpleParralax';
 import { Section } from '../../styles/PageStyles';
+import ButtonContact from '../Common/ButtonContact';
 
 const HeroWrapper = styled(motion.div)`
   max-width: 1200px;
@@ -112,7 +113,9 @@ export default function MainHero({ headshot }) {
           </div>
           <motion.div className="btn-wrapper" variants={itemA}>
             <SimpleParralax strength={250}>
-              <ButtonLarge main>Lets get in touch</ButtonLarge>
+              <motion.div initial="hidden" animate="visibile">
+                <ButtonContact main>get in touch</ButtonContact>
+              </motion.div>
             </SimpleParralax>
           </motion.div>
         </GridWrapper>

@@ -116,6 +116,7 @@ export default function Contact() {
             name="name"
             onChange={handleChange}
             placeholder="your name"
+            required
           />
         </motion.p>
         <motion.p variants={itemA}>
@@ -124,6 +125,7 @@ export default function Contact() {
             name="email"
             onChange={handleChange}
             placeholder="your email"
+            required
           />
         </motion.p>
         <motion.p variants={itemA}>
@@ -131,6 +133,7 @@ export default function Contact() {
             name="message"
             onChange={handleChange}
             placeholder="your message"
+            required
           />
         </motion.p>
         <motion.p variants={itemA}>
