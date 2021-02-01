@@ -24,11 +24,6 @@ const InnerContainer = styled(motion.div)`
   display: grid;
   display: grid;
   grid-template-columns: 1fr;
-  /* display: flex;
-  align-items: center;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-direction: column; */
   max-width: 1000px;
   margin: 60px auto;
   height: 100%;
@@ -62,7 +57,6 @@ const SkillItem = styled(motion.div)`
   font-weight: 300;
   line-height: 32px;
   padding-left: 20px;
-  /* color: #cecece; */
   @media ${device.sm} {
     font-size: 14px;
     padding-left: 10px;

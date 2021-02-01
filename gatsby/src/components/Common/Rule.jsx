@@ -2,10 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-  pageTransitionOne,
-  pageTransitionChild,
-} from '../Animations/PageAnimation';
 import SimpleParralax from '../Parralax/SimpleParralax';
 
 const RuleDiv = styled(motion.div)`

@@ -11,8 +11,6 @@ import SEO from '../components/SEO/SEO';
 
 const Layout = styled(motion.div)`
   margin: 0 auto;
-  /* max-width: 1200px; */
-  /* padding: 0 50px; */
 `;
 
 export default function Index({ data }) {

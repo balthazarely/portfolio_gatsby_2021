@@ -1,10 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { Link } from 'gatsby';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
-import { device } from '../../utils/breakpoints';
 import GlobalContext from '../../context/GlobalContext';
 import useWindowSize from '../../hooks/useWindowSize';
 import ToggleSwitch from './ToggleSwitch';

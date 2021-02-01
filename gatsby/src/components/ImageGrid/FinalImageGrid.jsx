@@ -157,7 +157,10 @@ function SingleProject({ projectData }) {
       </Link>
 
       <motion.h5>{projectData.category}</motion.h5>
-      <Link to={`/${projectData.slug.current}`}>
+      <Link
+        to={`/${projectData.slug.current}`}
+        style={{ textDecoration: 'none' }}
+      >
         <ProjectName>{projectData.name}</ProjectName>
       </Link>
     </motion.div>

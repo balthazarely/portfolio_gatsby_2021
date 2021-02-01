@@ -1,10 +1,7 @@
-import React, { useState, useContext, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
-import { FaRegArrowAltCircleDown } from 'react-icons/fa';
 import { device } from '../../utils/breakpoints';
-import ButtonLarge from '../Common/ButtonLarge';
 import ProfilePhoto from '../Common/ProfilePhoto';
 import SimpleParralax from '../Parralax/SimpleParralax';
 import { Section } from '../../styles/PageStyles';
@@ -38,32 +35,12 @@ const GridWrapper = styled(motion.div)`
     cursor: pointer;
   }
   h1 {
-    /* box-shadow: rgba(3, 3, 3, 0.12) 0px 32px 54px; */
     text-shadow: 0px 10px 10px rgba(3, 3, 3, 0.12);
   }
   h2 {
-    /* margin-top: -20px; */
     font-weight: 300;
     margin-bottom: 30px;
     margin-right: 30px;
-  }
-`;
-
-const DownBtnWrapper = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  margin: 60px auto 0 auto;
-  width: 100px;
-  height: 100px;
-  position: relative;
-  .down-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
   }
 `;
 
@@ -81,15 +58,6 @@ const container = {
 const itemA = {
   hidden: { opacity: 0, y: 20, rotate: 3 },
   show: { opacity: 1, y: 0, rotate: 0 },
-};
-
-const hoverProjectVariant = {
-  rest: { scale: 0 },
-  show: { scale: 1 },
-  hover: {
-    scale: 1.15,
-    color: 'green',
-  },
 };
 
 export default function MainHero({ headshot }) {
