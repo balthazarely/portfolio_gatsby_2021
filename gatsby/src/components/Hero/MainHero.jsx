@@ -11,7 +11,6 @@ const HeroWrapper = styled(motion.div)`
   max-width: 1200px;
   margin: 40px auto;
   padding: 60px 50px;
-  /* height: 70vh; */
   .down-btn {
     color: rgb(86, 179, 129);
     margin-right: 12px;
