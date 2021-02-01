@@ -4,9 +4,9 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Balthazar Ely`,
+    description: `Developer Potfolio for Balthazar Ely`,
+    author: `Balthazar Ely`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

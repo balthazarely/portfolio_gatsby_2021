@@ -176,6 +176,7 @@ export default function Navbar() {
             >
               <div className="nav-link-hov">resume.</div>
             </a>
+
             <div style={{ marginLeft: '20px' }}>
               <ToggleSwitch />
             </div>

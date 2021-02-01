@@ -7,6 +7,7 @@ import { FaCheck } from 'react-icons/fa';
 import { device } from '../utils/breakpoints';
 import Slider from '../components/Common/Slider';
 import ButtonLarge from '../components/Common/ButtonLarge';
+import SEO from '../components/SEO/SEO';
 
 const Layout = styled(motion.div)`
   max-width: 1200px;
@@ -130,71 +131,74 @@ export default function project({ data }) {
   const prepedImages = project.imagesGallery.map((x) => x.asset.url);
   console.log(project);
   return (
-    <AnimatePresence>
-      <Layout>
-        <motion.h4>{project.category}</motion.h4>
-        <ProjectHeader>{project.name}</ProjectHeader>
-        <ProjectDescriptionWrapper
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.div
-            style={{ overflow: 'hidden' }}
-            className="image-wrapper"
-            variants={itemB}
-            // variants={container}
+    <>
+      <SEO title={project.name} />
+      <AnimatePresence>
+        <Layout>
+          <motion.h4>{project.category}</motion.h4>
+          <ProjectHeader>{project.name}</ProjectHeader>
+          <ProjectDescriptionWrapper
+            variants={container}
             initial="hidden"
             animate="show"
           >
-            <Slider images={prepedImages} />
-          </motion.div>
-          <motion.div className="project-description-inner">
-            <motion.p variants={itemA}>{project.description}</motion.p>
-            <ProjectTags>
-              <motion.h5 className="tag-header" variants={itemA}>
-                Tech
-              </motion.h5>
-              <motion.div className="tag-wrapper" variants={itemA}>
-                {project.tags.map((singelProject) => (
-                  <motion.div className="single-tag-wrapper">
-                    <FaCheck
-                      style={{
-                        color: 'rgb(86, 179, 129)',
-                        marginRight: '5px',
-                        fontSize: '14px',
-                      }}
-                    />
-                    <motion.span className="tag-tech tag">
-                      {singelProject}
-                    </motion.span>
-                  </motion.div>
-                ))}
-              </motion.div>
-              <motion.div variants={itemA}>
-                <ButtonLarge
-                  marginTop="20"
-                  main
-                  size="md"
-                  toLink={project.link}
-                  newPage
-                >
-                  Live Site
-                </ButtonLarge>
-                <ButtonLarge
-                  marginTop="20"
-                  size="md"
-                  toLink={project.githubLink}
-                  newPage
-                >
-                  Github
-                </ButtonLarge>
-              </motion.div>
-            </ProjectTags>
-          </motion.div>
-        </ProjectDescriptionWrapper>
-      </Layout>
-    </AnimatePresence>
+            <motion.div
+              style={{ overflow: 'hidden' }}
+              className="image-wrapper"
+              variants={itemB}
+              // variants={container}
+              initial="hidden"
+              animate="show"
+            >
+              <Slider images={prepedImages} />
+            </motion.div>
+            <motion.div className="project-description-inner">
+              <motion.p variants={itemA}>{project.description}</motion.p>
+              <ProjectTags>
+                <motion.h5 className="tag-header" variants={itemA}>
+                  Tech
+                </motion.h5>
+                <motion.div className="tag-wrapper" variants={itemA}>
+                  {project.tags.map((singelProject) => (
+                    <motion.div className="single-tag-wrapper">
+                      <FaCheck
+                        style={{
+                          color: 'rgb(86, 179, 129)',
+                          marginRight: '5px',
+                          fontSize: '14px',
+                        }}
+                      />
+                      <motion.span className="tag-tech tag">
+                        {singelProject}
+                      </motion.span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+                <motion.div variants={itemA}>
+                  <ButtonLarge
+                    marginTop="20"
+                    main
+                    size="md"
+                    toLink={project.link}
+                    newPage
+                  >
+                    Live Site
+                  </ButtonLarge>
+                  <ButtonLarge
+                    marginTop="20"
+                    size="md"
+                    toLink={project.githubLink}
+                    newPage
+                  >
+                    Github
+                  </ButtonLarge>
+                </motion.div>
+              </ProjectTags>
+            </motion.div>
+          </ProjectDescriptionWrapper>
+        </Layout>
+      </AnimatePresence>
+    </>
   );
 }
 

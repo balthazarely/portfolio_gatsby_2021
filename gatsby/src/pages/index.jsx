@@ -7,6 +7,7 @@ import FinalImageGrid from '../components/ImageGrid/FinalImageGrid';
 import Rule from '../components/Common/Rule';
 import Skills from '../components/Common/Skills';
 import Contact from '../components/Common/Contact';
+import SEO from '../components/SEO/SEO';
 
 const Layout = styled(motion.div)`
   margin: 0 auto;
@@ -20,6 +21,7 @@ export default function Index({ data }) {
 
   return (
     <Layout>
+      <SEO title="Home" />
       <MainHero headshot={headshot} />
       <Rule />
       <FinalImageGrid allProjects={allProjects} />

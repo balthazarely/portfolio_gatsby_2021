@@ -2,7 +2,7 @@ import React from 'react';
 import { navigate } from 'gatsby-link';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-
+import SEO from '../components/SEO/SEO';
 import FormButton from '../components/Common/FormButton';
 
 const Layout = styled(motion.div)`
@@ -89,61 +89,64 @@ export default function Contact() {
   };
 
   return (
-    <Layout variants={container} initial="hidden" animate="show">
-      <motion.h1 variants={itemA}>Contact</motion.h1>
-      <motion.p variants={itemA}>
-        wanna talk about a project or give me a job (hopefully)?
-      </motion.p>
-      <form
-        name="contact"
-        method="post"
-        action="/thanks/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don’t fill this out:{' '}
-            <input name="bot-field" onChange={handleChange} />
-          </label>
-        </p>
+    <>
+      <SEO title="Contact" />
+      <Layout variants={container} initial="hidden" animate="show">
+        <motion.h1 variants={itemA}>Contact</motion.h1>
         <motion.p variants={itemA}>
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            placeholder="your name"
-            required
-          />
+          wanna talk about a project or give me a job (hopefully)?
         </motion.p>
-        <motion.p variants={itemA}>
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            placeholder="your email"
-            required
-          />
-        </motion.p>
-        <motion.p variants={itemA}>
-          <textarea
-            name="message"
-            onChange={handleChange}
-            placeholder="your message"
-            required
-          />
-        </motion.p>
-        <motion.p variants={itemA}>
-          {/* <button type="submit">Send</button> */}
-          <FormButton type="submit" variants={itemA}>
-            send
-          </FormButton>
-        </motion.p>
-      </form>
-    </Layout>
+        <form
+          name="contact"
+          method="post"
+          action="/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out:{' '}
+              <input name="bot-field" onChange={handleChange} />
+            </label>
+          </p>
+          <motion.p variants={itemA}>
+            <input
+              type="text"
+              name="name"
+              onChange={handleChange}
+              placeholder="your name"
+              required
+            />
+          </motion.p>
+          <motion.p variants={itemA}>
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              placeholder="your email"
+              required
+            />
+          </motion.p>
+          <motion.p variants={itemA}>
+            <textarea
+              name="message"
+              onChange={handleChange}
+              placeholder="your message"
+              required
+            />
+          </motion.p>
+          <motion.p variants={itemA}>
+            {/* <button type="submit">Send</button> */}
+            <FormButton type="submit" variants={itemA}>
+              send
+            </FormButton>
+          </motion.p>
+        </form>
+      </Layout>
+    </>
   );
 }
 // import React from 'react';
