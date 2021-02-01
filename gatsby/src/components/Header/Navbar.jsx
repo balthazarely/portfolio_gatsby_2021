@@ -51,6 +51,7 @@ const LogoWrapper = styled(motion.div)`
   justify-content: flex-end;
   align-items: center;
   height: 100%;
+  font-family: Lato;
   cursor: pointer;
 `;
 

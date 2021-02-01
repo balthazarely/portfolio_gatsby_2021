@@ -18,6 +18,18 @@ const SectionHeaderWrapper = styled(motion.div)`
     margin-bottom: 10px;
     /* border: 2px solid red; */
   }
+  h1 {
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    /* border: 2px solid red; */
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    /* border: 2px solid red; */
+  }
   .subheader {
     /* border: 2px solid red; */
     font-size: 18px;
@@ -50,22 +62,22 @@ export default function SectionHeader({
     triggerOnce: false,
   });
   return (
-    <SimpleParralax strength={25}>
-      <SectionHeaderWrapper
-        marginTop={marginTop}
-        marginBottom={marginBottom}
-        animate={inView ? 'visible' : 'hidden'}
-        variants={titleFadeUpVarient}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        ref={ref}
-      >
-        <div className="header section-header">
-          <div>{text}</div>
-        </div>
-        <div className="subheader section-subheader">
-          <div>{subtext}</div>
-        </div>
-      </SectionHeaderWrapper>
-    </SimpleParralax>
+    // <SimpleParralax strength={25}>
+    <SectionHeaderWrapper
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+      animate={inView ? 'visible' : 'hidden'}
+      variants={titleFadeUpVarient}
+      transition={{ duration: 1, ease: 'easeOut' }}
+      ref={ref}
+    >
+      <div className="header section-header">
+        <h1>{text}</h1>
+      </div>
+      <div className="subheader section-subheader">
+        <h2>{subtext}</h2>
+      </div>
+    </SectionHeaderWrapper>
+    // </SimpleParralax>
   );
 }

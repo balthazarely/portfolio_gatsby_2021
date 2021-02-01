@@ -66,24 +66,24 @@ export default function MainHero({ headshot }) {
         <ProfilePhoto headshot={headshot} />
         <GridWrapper variants={container} initial="hidden" animate="show">
           <div>
-            <SimpleParralax strength={350}>
-              <motion.h1 variants={itemA}>
-                Complete Solution for SaaS Business.
-              </motion.h1>
-            </SimpleParralax>
-            <SimpleParralax strength={300}>
-              <motion.h2 variants={itemA}>
-                I create websites for the modern world, not matter how
-                insignificant they seem
-              </motion.h2>
-            </SimpleParralax>
+            {/* <SimpleParralax strength={350}> */}
+            <motion.h1 variants={itemA}>
+              Complete Solution for SaaS Business.
+            </motion.h1>
+            {/* </SimpleParralax> */}
+            {/* <SimpleParralax strength={300}> */}
+            <motion.h2 variants={itemA}>
+              I create websites for the modern world, not matter how
+              insignificant they seem
+            </motion.h2>
+            {/* </SimpleParralax> */}
           </div>
           <motion.div className="btn-wrapper" variants={itemA}>
-            <SimpleParralax strength={250}>
-              <motion.div initial="hidden" animate="visibile">
-                <ButtonContact main>get in touch</ButtonContact>
-              </motion.div>
-            </SimpleParralax>
+            {/* <SimpleParralax strength={250}> */}
+            <motion.div initial="hidden" animate="visibile">
+              <ButtonContact main>get in touch</ButtonContact>
+            </motion.div>
+            {/* </SimpleParralax> */}
           </motion.div>
         </GridWrapper>
       </HeroWrapper>

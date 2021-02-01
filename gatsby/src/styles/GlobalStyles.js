@@ -62,6 +62,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 900;
     color: ${({ darkMode }) =>
       darkMode ? DefaultColors.dark : DefaultColors.white};
+
   
     
   }
