@@ -5,7 +5,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import GlobalContext from '../../context/GlobalContext';
 import useWindowSize from '../../hooks/useWindowSize';
 import ToggleSwitch from './ToggleSwitch';
-import downloadFile from '../../assets/resume/Balthazar_Ely_Resume.pdf';
+import downloadFile from '../../assets/resume/Balthazar_Ely_2020_Resume.pdf';
 
 const MenuWrapper = styled(motion.div)`
   z-index: 105;
