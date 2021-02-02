@@ -49,7 +49,7 @@ export const query = graphql`
         category
         coverImage {
           asset {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 200) {
               ...GatsbySanityImageFluid
             }
           }
