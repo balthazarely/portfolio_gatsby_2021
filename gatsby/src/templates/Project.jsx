@@ -282,22 +282,30 @@ export default function project({ data, location }) {
             <div className="btn-group">
               {reducedProjectArray[IndexThisProject - 1] !== undefined && (
                 <Link
-                  to={`/${reducedProjectArray[IndexThisProject + -1]}`}
+                  to={`/${reducedProjectArray[IndexThisProject - 1]}`}
                   style={{ textAlign: 'left' }}
                 >
                   <motion.div className="next-project">
                     previous project:
                   </motion.div>
                   <motion.div
+                    style={{ position: 'relative' }}
                     className="btn-next"
                     type="button"
-                    whileHover={{
-                      scale: 1.05,
-                      transition: { duration: 0.2 },
-                    }}
                   >
-                    {/* <FaArrowLeft className="arrow" /> */}
-                    {reducedProjectArray[IndexThisProject + -1]}{' '}
+                    <motion.div
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.2 },
+                      }}
+                      style={{
+                        width: '300px',
+                        position: 'absolute',
+                        left: 0,
+                      }}
+                    >
+                      {reducedProjectArray[IndexThisProject - 1]}{' '}
+                    </motion.div>
                   </motion.div>
                 </Link>
               )}
@@ -313,15 +321,23 @@ export default function project({ data, location }) {
                     next project:
                   </motion.div>
                   <motion.div
+                    style={{ position: 'relative' }}
                     className="btn-next"
                     type="button"
-                    whileHover={{
-                      scale: 1.05,
-                      transition: { duration: 0.2 },
-                    }}
                   >
-                    {reducedProjectArray[IndexThisProject + 1]}{' '}
-                    {/* <FaArrowRight className="arrow" /> */}
+                    <motion.div
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.2 },
+                      }}
+                      style={{
+                        width: '300px',
+                        position: 'absolute',
+                        right: 0,
+                      }}
+                    >
+                      {reducedProjectArray[IndexThisProject + 1]}{' '}
+                    </motion.div>
                   </motion.div>
                 </Link>
               )}
@@ -347,7 +363,7 @@ export const query = graphql`
       githubLink
       coverImage {
         asset {
-          fluid(maxWidth: 400) {
+          fluid(maxWidth: 800) {
             ...GatsbySanityImageFluid
           }
         }
