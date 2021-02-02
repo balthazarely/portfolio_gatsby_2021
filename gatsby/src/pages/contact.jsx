@@ -93,9 +93,7 @@ export default function Contact() {
       <SEO title="Contact" />
       <Layout variants={container} initial="hidden" animate="show">
         <motion.h1 variants={itemA}>Contact</motion.h1>
-        <motion.p variants={itemA}>
-          Wanna talk about a project or position?
-        </motion.p>
+        <motion.p variants={itemA}>Interested in working together?</motion.p>
         <form
           name="contact"
           method="post"

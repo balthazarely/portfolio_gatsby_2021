@@ -3,10 +3,13 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCheck, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { Carousel } from 'react-responsive-carousel';
+import Img from 'gatsby-image';
 import { device } from '../utils/breakpoints';
 import Slider from '../components/Common/Slider';
 import ButtonLarge from '../components/Common/ButtonLarge';
 import SEO from '../components/SEO/SEO';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 const Layout = styled(motion.div)`
   max-width: 1200px;
@@ -55,9 +58,10 @@ const ProjectDescriptionWrapper = styled(motion.div)`
     }
   }
   .image-wrapper {
-    padding: 20px 0;
+    padding: 20px 0 0;
     position: relative;
     width: 100%;
+    height: 100%;
     overflow: hidden;
   }
   .project-image {
@@ -106,11 +110,15 @@ const ProjectTags = styled(motion.div)`
 const NavigationBtns = styled(motion.div)`
   padding: 40px 20px;
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   height: 200px;
   display: flex;
-  align-items: flex-end;
   justify-content: flex-end;
   flex-direction: row;
+  @media ${device.md} {
+    padding: 0px 20px;
+    }
   .btn-group {
     width: 50%;
     bo
@@ -164,6 +172,9 @@ const itemB = {
 export default function project({ data, location }) {
   const { project } = data;
   const prepedImages = project.imagesGallery.map((x) => x.asset.url);
+  const prepedImagesFluid = project.imagesGallery.map((x) => x.asset.fluid);
+
+  console.log(project);
 
   // Find next project for NEXT btn
   const { allProjects } = data;
@@ -173,14 +184,6 @@ export default function project({ data, location }) {
   );
   const IndexThisProject = reducedProjectArray.indexOf(
     location.pathname.substring(1)
-  );
-
-  console.log('THe array', reducedProjectArray);
-
-  console.log('index of this project', IndexThisProject);
-  console.log(
-    "Project we're going to ",
-    reducedProjectArray[IndexThisProject - 1]
   );
 
   return (
@@ -199,11 +202,30 @@ export default function project({ data, location }) {
               style={{ overflow: 'hidden' }}
               className="image-wrapper"
               variants={itemB}
-              // variants={container}
               initial="hidden"
               animate="show"
             >
-              <Slider images={prepedImages} />
+              {/* <Slider
+                images={prepedImages}
+                prepedImagesFluid={prepedImagesFluid}
+              /> */}
+              <Carousel
+                swipeable
+                showArrows
+                showStatus={false}
+                showThumbs={false}
+                style={{ zIndex: 2000000 }}
+              >
+                {project.imagesGallery.map((image) => (
+                  <div>
+                    <Img
+                      className="project-image"
+                      fluid={image.asset.fluid}
+                      alt="project-demo"
+                    />
+                  </div>
+                ))}
+              </Carousel>
             </motion.div>
             <motion.div className="project-description-inner">
               <motion.p variants={itemA}>{project.description}</motion.p>
@@ -228,27 +250,32 @@ export default function project({ data, location }) {
                   ))}
                 </motion.div>
                 <motion.div variants={itemA}>
-                  <ButtonLarge
-                    marginTop="20"
-                    main
-                    size="md"
-                    toLink={project.link}
-                    newPage
-                  >
-                    Live Site
-                  </ButtonLarge>
-                  <ButtonLarge
-                    marginTop="20"
-                    size="md"
-                    toLink={project.githubLink}
-                    newPage
-                  >
-                    Github
-                  </ButtonLarge>
+                  {project.link && (
+                    <ButtonLarge
+                      marginTop="20"
+                      main
+                      size="md"
+                      toLink={project.link}
+                      newPage
+                    >
+                      Live Site
+                    </ButtonLarge>
+                  )}
+                  {project.githubLink && (
+                    <ButtonLarge
+                      marginTop="20"
+                      size="md"
+                      toLink={project.githubLink}
+                      newPage
+                    >
+                      Github
+                    </ButtonLarge>
+                  )}
                 </motion.div>
               </ProjectTags>
             </motion.div>
           </ProjectDescriptionWrapper>
+
           <NavigationBtns
             className="next-project-btn"
             style={{ marginTop: '20px' }}
@@ -329,6 +356,9 @@ export const query = graphql`
       imagesGallery {
         asset {
           url
+          fluid(maxWidth: 400) {
+            ...GatsbySanityImageFluid
+          }
         }
       }
     }

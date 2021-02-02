@@ -60,9 +60,9 @@ const itemA = {
 export default function Thanks() {
   return (
     <Layout variants={container} initial="hidden" animate="show">
-      <motion.h1 variants={itemA}>Your message has been sent!</motion.h1>
+      <motion.h1 variants={itemA}>Thank you for your message!</motion.h1>
       <motion.p variants={itemA}>
-        I will get back to you within 24 hours.
+        I will get back to you as soon as possible.
       </motion.p>
     </Layout>
   );

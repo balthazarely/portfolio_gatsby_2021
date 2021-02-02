@@ -35,7 +35,7 @@ const variants = {
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
 
-const Slider = ({ images }) => {
+const Slider = ({ images, prepedImagesFluid }) => {
   const [[page, direction], setPage] = useState([0, 0]);
 
   const imageIndex = wrap(0, images.length, page);
@@ -56,6 +56,7 @@ const Slider = ({ images }) => {
             initial="enter"
             animate="center"
             exit="exit"
+            // fluid={prepedImagesFluid[imageIndex]}
             // className="gatsby-image-wrapper"
             transition={{
               x: { type: 'spring', stiffness: 300, damping: 30 },

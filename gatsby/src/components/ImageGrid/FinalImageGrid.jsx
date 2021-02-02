@@ -49,6 +49,7 @@ const Overlay = styled(motion.div)`
   background: rgba(22, 29, 45, 0.35);
   z-index: 53;
   transition: 0.4s;
+  cursor: pointer;
 `;
 
 const ProjectInfoTab = styled(motion.div)`
@@ -74,6 +75,7 @@ const ProjectInfoTab = styled(motion.div)`
   .project-description {
     font-size: 14px;
     color: #646464;
+    font-weight: 700;
     span {
       margin-right: 3px;
     }
