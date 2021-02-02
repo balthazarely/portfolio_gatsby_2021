@@ -1,8 +1,8 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { device } from '../utils/breakpoints';
 import Slider from '../components/Common/Slider';
 import ButtonLarge from '../components/Common/ButtonLarge';
@@ -20,7 +20,7 @@ const ProjectHeader = styled(motion.h1)`
 `;
 const ProjectDescriptionWrapper = styled(motion.div)`
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   display: grid;
   grid-template-columns: 1fr;
   overflow: hidden;
@@ -57,8 +57,6 @@ const ProjectDescriptionWrapper = styled(motion.div)`
   .image-wrapper {
     padding: 20px 0;
     position: relative;
-    /* height: auto; */
-    /* height: 600px; */
     width: 100%;
     overflow: hidden;
   }
@@ -105,6 +103,44 @@ const ProjectTags = styled(motion.div)`
   }
 `;
 
+const NavigationBtns = styled(motion.div)`
+  padding: 40px 20px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: row;
+  .btn-group {
+    width: 50%;
+    bo
+  }
+  a {
+    text-decoration: none;
+  }
+  .next-project {
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 12px;
+    @media ${device.md} {
+      font-size: 16px;
+    }
+  }
+  .btn-next {
+    color: rgb(86, 179, 129);
+    background: transparent;
+    border: none;
+    font-weight: 900;
+    font-size: 16px;
+    @media ${device.md} {
+      font-size: 24px;
+    }
+  }
+  .arrow {
+    font-size: 15px;
+  }
+`;
+
 const container = {
   hidden: { y: 30 },
   show: {
@@ -125,9 +161,27 @@ const itemB = {
   show: { opacity: 1, scale: 1 },
 };
 
-export default function project({ data }) {
+export default function project({ data, location }) {
   const { project } = data;
   const prepedImages = project.imagesGallery.map((x) => x.asset.url);
+
+  // Find next project for NEXT btn
+  const { allProjects } = data;
+  const reducedProjectArray = allProjects.nodes.reduce(
+    (r, obj) => r.concat(obj.slug.current),
+    []
+  );
+  const IndexThisProject = reducedProjectArray.indexOf(
+    location.pathname.substring(1)
+  );
+
+  console.log('THe array', reducedProjectArray);
+
+  console.log('index of this project', IndexThisProject);
+  console.log(
+    "Project we're going to ",
+    reducedProjectArray[IndexThisProject - 1]
+  );
 
   return (
     <>
@@ -195,6 +249,58 @@ export default function project({ data }) {
               </ProjectTags>
             </motion.div>
           </ProjectDescriptionWrapper>
+          <NavigationBtns
+            className="next-project-btn"
+            style={{ marginTop: '20px' }}
+          >
+            <div className="btn-group">
+              {reducedProjectArray[IndexThisProject - 1] !== undefined && (
+                <Link
+                  to={`/${reducedProjectArray[IndexThisProject + -1]}`}
+                  style={{ textAlign: 'left' }}
+                >
+                  <motion.div className="next-project">
+                    previous project:
+                  </motion.div>
+                  <motion.div
+                    className="btn-next"
+                    type="button"
+                    whileHover={{
+                      scale: 1.05,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    <FaArrowLeft className="arrow" />
+                    {reducedProjectArray[IndexThisProject + -1]}{' '}
+                  </motion.div>
+                </Link>
+              )}
+            </div>
+
+            <div className="btn-group">
+              {reducedProjectArray[IndexThisProject + 1] !== undefined && (
+                <Link
+                  to={`/${reducedProjectArray[IndexThisProject + 1]}`}
+                  style={{ textAlign: 'right' }}
+                >
+                  <motion.div className="next-project">
+                    next project:
+                  </motion.div>
+                  <motion.div
+                    className="btn-next"
+                    type="button"
+                    whileHover={{
+                      scale: 1.05,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    {reducedProjectArray[IndexThisProject + 1]}{' '}
+                    <FaArrowRight className="arrow" />
+                  </motion.div>
+                </Link>
+              )}
+            </div>
+          </NavigationBtns>
         </Layout>
       </AnimatePresence>
     </>
@@ -223,6 +329,13 @@ export const query = graphql`
       imagesGallery {
         asset {
           url
+        }
+      }
+    }
+    allProjects: allSanityProjects(sort: { order: ASC, fields: order }) {
+      nodes {
+        slug {
+          current
         }
       }
     }

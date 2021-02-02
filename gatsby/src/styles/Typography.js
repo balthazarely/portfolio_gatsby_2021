@@ -132,6 +132,11 @@ const TypographyStyles = createGlobalStyle`
             darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
         }
         }
+        .next-project  {
+          color: ${({ darkMode }) =>
+            darkMode ? DefaultColors.darkLess : DefaultColors.whiteLess};
+        }
+        }
 `;
 
 export default TypographyStyles;
