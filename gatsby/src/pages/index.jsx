@@ -33,7 +33,7 @@ export const query = graphql`
     headshot: sanityCopy {
       headshot {
         asset {
-          fluid(maxWidth: 500) {
+          fluid(maxWidth: 300) {
             ...GatsbySanityImageFluid
           }
         }
@@ -49,14 +49,14 @@ export const query = graphql`
         category
         coverImage {
           asset {
-            fluid(maxWidth: 200) {
+            fluid(maxWidth: 500) {
               ...GatsbySanityImageFluid
             }
           }
         }
         imagesGallery {
           asset {
-            fluid(maxWidth: 500) {
+            fluid(maxWidth: 800) {
               src
             }
           }
