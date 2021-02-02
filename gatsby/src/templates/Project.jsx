@@ -14,7 +14,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 const Layout = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 10px;
+  padding: 60px 10px 0px;
   text-align: center;
 `;
 
@@ -108,20 +108,19 @@ const ProjectTags = styled(motion.div)`
 `;
 
 const NavigationBtns = styled(motion.div)`
-  padding: 40px 20px;
+  padding: 0px 10px 0px;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
-  height: 200px;
+  margin: 30px auto;
+  /* height: 120px; */
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
   @media ${device.md} {
-    padding: 0px 20px;
-    }
+    /* padding: 0px 0px; */
+  }
   .btn-group {
     width: 50%;
-    bo
   }
   a {
     text-decoration: none;
@@ -139,7 +138,7 @@ const NavigationBtns = styled(motion.div)`
     background: transparent;
     border: none;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 20px;
     @media ${device.md} {
       font-size: 24px;
     }
@@ -152,7 +151,7 @@ const NavigationBtns = styled(motion.div)`
 const container = {
   hidden: { y: 30 },
   show: {
-    rotate: 0,
+    y: 0,
     transition: {
       staggerChildren: 0.1, // 1
       delayChildren: 0.35,
@@ -161,8 +160,8 @@ const container = {
 };
 
 const itemA = {
-  hidden: { opacity: 0, y: 20, rotate: 3 },
-  show: { opacity: 1, y: 0, rotate: 0 },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
 };
 const itemB = {
   hidden: { opacity: 0, scale: 0 },
@@ -278,7 +277,7 @@ export default function project({ data, location }) {
 
           <NavigationBtns
             className="next-project-btn"
-            style={{ marginTop: '20px' }}
+            // style={{ marginTop: '40px' }}
           >
             <div className="btn-group">
               {reducedProjectArray[IndexThisProject - 1] !== undefined && (
@@ -297,7 +296,7 @@ export default function project({ data, location }) {
                       transition: { duration: 0.2 },
                     }}
                   >
-                    <FaArrowLeft className="arrow" />
+                    {/* <FaArrowLeft className="arrow" /> */}
                     {reducedProjectArray[IndexThisProject + -1]}{' '}
                   </motion.div>
                 </Link>
@@ -322,7 +321,7 @@ export default function project({ data, location }) {
                     }}
                   >
                     {reducedProjectArray[IndexThisProject + 1]}{' '}
-                    <FaArrowRight className="arrow" />
+                    {/* <FaArrowRight className="arrow" /> */}
                   </motion.div>
                 </Link>
               )}
