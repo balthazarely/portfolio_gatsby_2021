@@ -1,7 +1,7 @@
 {
-  "name": "slicks-slices-frontend",
+  "name": "balthazar-elys-developer-portfolio",
   "private": true,
-  "description": "Slick Serves the Sweetest Slices",
+  "description": "This is the developer porfolio for Balthazar Ely",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {

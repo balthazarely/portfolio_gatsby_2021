@@ -143,13 +143,13 @@ export default function Skills() {
 
   const devSkills = [
     'Javascript',
-    'CSS/SaSS',
+    'CSS/SCSS',
     'HTML',
     'React',
+    'Angular',
     'Gatsby',
-    'Vue',
-    'Material-UI',
-    'Bootstrap/Bulma',
+    'TailwindCSS',
+    'Bootstrap/Bulma/Material',
     'GraphQL',
     'Express',
     'Firebase',
