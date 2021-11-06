@@ -1,9 +1,8 @@
-import React from 'react';
-import Layout from './src/components/Layout/Layout';
-import { GlobalProvider } from './src/context/GlobalContext';
+import React from "react";
+import Layout from "./src/components/Layout/Layout";
+import { GlobalProvider } from "./src/context/GlobalContext";
 
 const transitionDelay = 250;
-
 export const wrapPageElement = ({ element, props }) => (
   <Layout {...props}>{element}</Layout>
 );
@@ -15,7 +14,7 @@ export const shouldUpdateScroll = ({
   routerProps: { location },
   getSavedScrollPosition,
 }) => {
-  if (location.action === 'PUSH') {
+  if (location.action === "PUSH") {
     window.setTimeout(() => window.scrollTo(0, 0), transitionDelay);
   } else {
     const savedPosition = getSavedScrollPosition(location);
