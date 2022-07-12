@@ -9,7 +9,7 @@ import NavIcon from './NavIcon';
 import GlobalContext from '../../context/GlobalContext';
 import Menu from './Menu';
 import ToggleSwitch from './ToggleSwitch';
-import downloadFile from '../../assets/resume/Balthazar_Ely_2020_Resume.pdf';
+import downloadFile from '../../assets/resume/Balthazar_Ely_Resume2022.pdf';
 
 const Header = styled.nav`
   padding: 0;
