@@ -173,15 +173,6 @@ export default function Navbar() {
               </motion.div>
             </AnchorLink>
             <a
-              className="links nav-link-text mobile"
-              href="https://bannerbin-552ae.web.app/"
-              target="_blank"
-            >
-              <motion.div whileHover={{ scale: 1.1 }} className="nav-link-hov">
-                html banners.
-              </motion.div>
-            </a>
-            <a
               className="links nav-link-text"
               href={downloadFile}
               target="_blank"
