@@ -134,7 +134,7 @@ export default function Menu({}) {
               </div>
             </AnchorLink>
           </div>
-          <div className="menu-link">
+          {/* <div className="menu-link">
             <a
               className="links nav-link-text mobile"
               href="https://bannerbin-552ae.web.app/"
@@ -149,7 +149,7 @@ export default function Menu({}) {
                 html banners.
               </div>
             </a>
-          </div>
+          </div> */}
           <div className="menu-link">
             <a
               className="links nav-link-text mobile"

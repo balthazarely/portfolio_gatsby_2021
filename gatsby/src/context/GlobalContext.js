@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// First, we need to create an order context.
 const GlobalContext = React.createContext();
 
 export function GlobalProvider({ children }) {
