@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const GlobalContext = React.createContext();
 
 export function GlobalProvider({ children }) {
-  // This is where we should sick the state.
   const [navOpen, setNavOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
