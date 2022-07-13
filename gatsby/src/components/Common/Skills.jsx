@@ -142,16 +142,16 @@ export default function Skills() {
   });
 
   const devSkills = [
-    'Javascript',
+    'Javascript/jQuery',
     'CSS/SCSS',
-    'HTML',
+    'HTML5',
     'React',
     'Angular',
     'Gatsby',
     'TailwindCSS',
+    'Shopify',
     'Bootstrap/Bulma/Material',
-    'GraphQL',
-    'Express',
+    'ExpressJS',
     'Firebase',
     'MongoDB',
     'GSAP',
@@ -162,7 +162,7 @@ export default function Skills() {
   const otherSkills = [
     'Graphic Design',
     'Adobe Suite',
-    'Sketch/Figma',
+    'Sketch/Figma/XD',
     'Print Production',
     'Logo Design',
   ];
